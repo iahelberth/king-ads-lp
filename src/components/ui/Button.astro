@@ -1,0 +1,65 @@
+---
+/**
+ * Button.astro — Botão reutilizável
+ *
+ * Props:
+ *   href     - Se informado, renderiza como <a>. Se não, como <button>
+ *   variant  - 'primary' | 'outline' | 'ghost' | 'white'
+ *   size     - 'sm' | 'md' | 'lg'
+ *   arrow    - Mostrar seta → (default: false)
+ *   full     - Largura 100% (default: false)
+ */
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'outline' | 'ghost' | 'white';
+  size?: 'sm' | 'md' | 'lg';
+  arrow?: boolean;
+  full?: boolean;
+  class?: string;
+  [key: string]: unknown;
+}
+
+const {
+  href,
+  variant = 'primary',
+  size = 'md',
+  arrow = false,
+  full = false,
+  class: extraClass = '',
+  ...rest
+} = Astro.props;
+
+const Tag = href ? 'a' : 'button';
+
+const sizeClass = {
+  sm: 'text-[12px] px-5 py-2.5',
+  md: 'text-[14px] px-9 py-4',
+  lg: 'text-[17px] px-14 py-5',
+}[size];
+
+const variantClass = {
+  primary: 'bg-[var(--color-primary)] text-white hover:brightness-90',
+  outline: 'bg-transparent text-white border border-white/30 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]',
+  ghost:   'bg-transparent text-white hover:bg-white/5',
+  white:   'bg-white text-[var(--color-primary)] hover:bg-white/90',
+}[variant];
+---
+
+<Tag
+  href={href}
+  class:list={[
+    'inline-flex items-center gap-2.5 font-bold tracking-widest uppercase rounded-sm no-underline transition-all duration-200 hover:-translate-y-0.5 cursor-pointer border-0',
+    sizeClass,
+    variantClass,
+    full ? 'w-full justify-center' : '',
+    extraClass,
+  ]}
+  {...rest}
+>
+  <slot />
+  {arrow && (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  )}
+</Tag>

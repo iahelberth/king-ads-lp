@@ -1,0 +1,238 @@
+---
+/**
+ * Features.astro — Grid de features / benefícios / serviços
+ * Atualizado com Container Queries + CSS Subgrid
+ *
+ * variant: 'grid-3' | 'grid-2' | 'list'
+ *
+ * Props:
+ *   tag      - Texto da tag topo (ex: "O Que Você Ganha")
+ *   title    - Título da seção
+ *   subtitle - Descrição abaixo do título
+ *   items    - Array de { icon, title, description, tag? }
+ *   variant  - Layout: 'grid-3' | 'grid-2' | 'list'
+ *   bg       - 'default' | 'surface' | 'raised' (default: 'surface')
+ *   align    - Alinhamento do header: 'center' | 'left' (default: 'center')
+ */
+interface FeatureItem {
+  icon?: string;
+  title: string;
+  description: string;
+  tag?: string;
+}
+
+interface Props {
+  tag?: string;
+  title: string;
+  subtitle?: string;
+  items: FeatureItem[];
+  variant?: 'grid-3' | 'grid-2' | 'list';
+  bg?: 'default' | 'surface' | 'raised';
+  align?: 'center' | 'left';
+}
+
+const {
+  tag,
+  title,
+  subtitle,
+  items,
+  variant = 'grid-2',
+  bg = 'surface',
+  align = 'center',
+} = Astro.props;
+---
+
+<section
+  id="features"
+  class:list={['section features', `features--${bg}`, `features--${variant}`]}
+>
+  <!-- Glow decorativo -->
+  <div class="glow glow--top-center" aria-hidden="true"></div>
+
+  <div class="container">
+    <!-- Header -->
+    <div
+      class:list={['section-header', `section-header--${align}`, 'features__header']}
+      data-reveal
+    >
+      {tag && <span class="text-eyebrow">{tag}</span>}
+      <h2 set:html={title} />
+      {subtitle && <p class="text-lead" style="max-width: 52ch;">{subtitle}</p>}
+    </div>
+
+    <!-- Grid com subgrid para alinhamento perfeito dos cards -->
+    <div class="features__grid">
+      {items.map((item, i) => (
+        <article
+          class="features__card"
+          data-reveal
+          data-delay={String((i % 3) + 1)}
+        >
+          <!-- Top accent bar animado no hover -->
+          <div class="features__card-accent" aria-hidden="true"></div>
+
+          <div class="features__card-inner">
+            {item.icon && (
+              <span class="features__icon" aria-hidden="true">{item.icon}</span>
+            )}
+            <h3 class="features__card-title">{item.title}</h3>
+            <p class="features__card-desc">{item.description}</p>
+            {item.tag && (
+              <span class="text-eyebrow features__card-tag">{item.tag}</span>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ── Section background variants ───────────────────────────── */
+  .features--default { background-color: var(--color-bg); }
+  .features--surface { background-color: var(--color-surface); }
+  .features--raised  { background-color: var(--color-surface-raised); }
+
+  .features__header { margin-bottom: var(--space-content); }
+
+  /* ── Grid com CSS Subgrid ──────────────────────────────────── */
+  /* Subgrid: cards herdam a grid do pai — itens internos se alinham
+     perfeitamente entre cards, independente do conteúdo de cada um. */
+  .features__grid {
+    display: grid;
+    gap: 1px; /* Separa cards com borda visual via background */
+    background-color: var(--color-border);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+
+    /* Define linha de subgrid com 4 fileiras:
+       icon | título | descrição | tag (opcional) */
+    grid-template-rows: auto;
+  }
+
+  /* Variantes de coluna */
+  .features--grid-2 .features__grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  }
+  .features--grid-3 .features__grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  }
+  .features--list .features__grid {
+    grid-template-columns: 1fr;
+    background: transparent;
+    border: none;
+    gap: var(--_space-4);
+  }
+
+  /* ── Card ──────────────────────────────────────────────────── */
+  .features__card {
+    position: relative;
+    background-color: var(--card-bg);
+    padding: clamp(2rem, 4vw, 3rem);
+    transition: background-color var(--transition-base);
+
+    /* Container query: card reage ao seu próprio tamanho */
+    container-type: inline-size;
+    container-name: feature-card;
+
+    /* Subgrid: os filhos se alinham com outros cards na mesma linha */
+    display: grid;
+    grid-template-rows: subgrid;
+    /* Fallback para browsers sem subgrid */
+    grid-row: span 1;
+  }
+
+  @supports (grid-template-rows: subgrid) {
+    .features__grid {
+      /* 4 linhas: icon, titulo, descricao, tag */
+      grid-template-rows: repeat(4, auto);
+      align-items: start;
+    }
+    .features__card {
+      grid-row: span 4;
+    }
+  }
+
+  .features__card:hover { background-color: var(--card-hover-bg); }
+
+  /* Variante list: card diferente */
+  .features--list .features__card {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-card);
+    padding: 1.75rem;
+  }
+
+  /* ── Accent top bar ────────────────────────────────────────── */
+  .features__card-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--color-brand);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-slow);
+  }
+
+  .features__card:hover .features__card-accent {
+    transform: scaleX(1);
+  }
+
+  /* ── Card inner ────────────────────────────────────────────── */
+  .features__card-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    height: 100%;
+  }
+
+  .features--list .features__card-inner { flex: 1; }
+
+  /* ── Icon ──────────────────────────────────────────────────── */
+  .features__icon {
+    font-size: 2.25rem;
+    line-height: 1;
+    display: block;
+  }
+
+  /* Variante list: icon maior e em destaque */
+  .features--list .features__icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+  }
+
+  /* Container query: icon menor em cards estreitos */
+  @container feature-card (max-width: 260px) {
+    .features__icon { font-size: 1.75rem; }
+  }
+
+  /* ── Título ─────────────────────────────────────────────────── */
+  .features__card-title {
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    font-weight: 700;
+    color: var(--color-text);
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Descrição ──────────────────────────────────────────────── */
+  .features__card-desc {
+    font-size: var(--_text-sm);
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    max-width: none; /* remove o max-width global de p */
+    flex: 1;
+  }
+
+  /* ── Tag ────────────────────────────────────────────────────── */
+  .features__card-tag {
+    margin-top: auto;
+    padding-top: 0.5rem;
+  }
+</style>

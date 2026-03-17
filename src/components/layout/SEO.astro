@@ -1,0 +1,54 @@
+---
+/**
+ * SEO.astro — Meta tags completas para cada página
+ * Props:
+ *   title       - Título da página (max ~60 chars)
+ *   description - Descrição (max ~155 chars)
+ *   image       - URL da imagem OG (1200x630 recomendado)
+ *   canonical   - URL canônica (se diferente da URL atual)
+ *   type        - 'website' | 'article' (default: website)
+ *   noindex     - true para ocultar do Google (default: false)
+ */
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  canonical?: string;
+  type?: 'website' | 'article';
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  image = '/og-default.jpg',
+  canonical,
+  type = 'website',
+  noindex = false,
+} = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
+const pageUrl = canonical ?? `${siteUrl}${Astro.url.pathname}`;
+const imageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
+---
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+<link rel="canonical" href={pageUrl} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={pageUrl} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={imageUrl} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={pageUrl} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={imageUrl} />

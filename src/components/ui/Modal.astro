@@ -1,0 +1,135 @@
+---
+/**
+ * Modal.astro — Pop-up com 3 tipos de trigger
+ *
+ * trigger: 'exit-intent' | 'timed' | 'scroll'
+ *
+ * Props:
+ *   trigger        - Quando abrir o modal
+ *   delay          - delay em ms para 'timed' (default: 8000)
+ *   scrollPercent  - % de scroll para 'scroll' trigger (default: 60)
+ *   cookieKey      - Chave para não mostrar novamente (default: 'modal-shown')
+ *   cookieDays     - Dias para não mostrar (default: 7)
+ *   title          - Título do modal
+ *   description    - Descrição
+ *   ctaText        - Texto do botão
+ *   ctaHref        - Link do botão (se quiser redirecionar em vez de fechar)
+ *   formInside     - true para inserir o slot dentro do modal
+ */
+interface Props {
+  trigger?: 'exit-intent' | 'timed' | 'scroll';
+  delay?: number;
+  scrollPercent?: number;
+  cookieKey?: string;
+  cookieDays?: number;
+  title?: string;
+  description?: string;
+  ctaText?: string;
+  ctaHref?: string;
+  formInside?: boolean;
+}
+
+const {
+  trigger = 'timed',
+  delay = 8000,
+  scrollPercent = 60,
+  cookieKey = 'modal-shown',
+  cookieDays = 7,
+  title,
+  description,
+  ctaText,
+  ctaHref,
+  formInside = false,
+} = Astro.props;
+---
+
+<!-- Overlay + Modal -->
+<div
+  id="site-modal"
+  class="fixed inset-0 z-[9999] flex items-center justify-center p-4 hidden"
+  style="background: rgba(0,0,0,0.8); backdrop-filter: blur(8px);"
+>
+  <div
+    id="modal-box"
+    class="relative bg-[var(--color-bg-dark)] border border-white/10 rounded-sm max-w-lg w-full p-10"
+    style="box-shadow: 0 20px 60px rgba(0,0,0,0.6);"
+  >
+    <!-- Fechar -->
+    <button
+      id="modal-close"
+      class="absolute top-4 right-4 text-[#9a9a9a] hover:text-white transition-colors text-2xl leading-none cursor-pointer bg-transparent border-0"
+      aria-label="Fechar"
+    >
+      ×
+    </button>
+
+    {title && (
+      <h3 class="font-display text-[28px] text-white leading-snug tracking-[-0.5px] mb-3" set:html={title} />
+    )}
+
+    {description && (
+      <p class="text-white/60 text-[15px] leading-[1.7] mb-7">{description}</p>
+    )}
+
+    <!-- Slot para conteúdo customizado (ex: LeadForm) -->
+    <slot />
+
+    {ctaText && !formInside && (
+      ctaHref ? (
+        <a href={ctaHref} class="block w-full text-center bg-[var(--color-primary)] text-white font-bold text-sm tracking-widest uppercase py-4 rounded-sm no-underline hover:brightness-90 transition-all mt-4">
+          {ctaText}
+        </a>
+      ) : (
+        <button id="modal-cta" class="w-full bg-[var(--color-primary)] text-white font-bold text-sm tracking-widest uppercase py-4 rounded-sm cursor-pointer border-0 hover:brightness-90 transition-all mt-4">
+          {ctaText}
+        </button>
+      )
+    )}
+  </div>
+</div>
+
+<script define:vars={{ trigger, delay, scrollPercent, cookieKey, cookieDays }}>
+  const modal = document.getElementById('site-modal');
+  const closeBtn = document.getElementById('modal-close');
+  const ctaBtn = document.getElementById('modal-cta');
+
+  // Verificar cookie
+  function getCookie(key: string) {
+    return document.cookie.split(';').some(c => c.trim().startsWith(key + '='));
+  }
+  function setCookie(key: string, days: number) {
+    const exp = new Date(Date.now() + days * 864e5).toUTCString();
+    document.cookie = `${key}=1; expires=${exp}; path=/`;
+  }
+
+  function openModal() {
+    if (getCookie(cookieKey)) return;
+    modal?.classList.remove('hidden');
+    modal?.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    modal?.classList.add('hidden');
+    modal?.classList.remove('flex');
+    document.body.style.overflow = '';
+    setCookie(cookieKey, cookieDays);
+  }
+
+  closeBtn?.addEventListener('click', closeModal);
+  ctaBtn?.addEventListener('click', closeModal);
+  modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+  // Triggers
+  if (trigger === 'timed') {
+    setTimeout(openModal, delay);
+  } else if (trigger === 'exit-intent') {
+    document.addEventListener('mouseleave', (e) => {
+      if (e.clientY < 0) openModal();
+    });
+  } else if (trigger === 'scroll') {
+    window.addEventListener('scroll', () => {
+      const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      if (pct >= scrollPercent) openModal();
+    }, { passive: true });
+  }
+</script>

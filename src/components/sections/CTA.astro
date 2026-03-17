@@ -1,0 +1,66 @@
+---
+/**
+ * CTA.astro — Seção de call-to-action final
+ *
+ * Props:
+ *   title    - Título (aceita HTML)
+ *   subtitle - Subtítulo
+ *   ctaText  - Texto do botão
+ *   ctaHref  - Link do botão
+ *   disclaimer - Texto pequeno abaixo do botão
+ *   bg       - 'dark' | 'darker' (default: 'darker')
+ */
+interface Props {
+  title: string;
+  subtitle?: string;
+  ctaText: string;
+  ctaHref?: string;
+  disclaimer?: string;
+  bg?: 'dark' | 'darker';
+}
+
+const {
+  title,
+  subtitle,
+  ctaText,
+  ctaHref = '#',
+  disclaimer,
+  bg = 'darker',
+} = Astro.props;
+---
+
+<section
+  id="cta"
+  class:list={[
+    'py-36 text-center relative overflow-hidden',
+    bg === 'darker' ? 'bg-[var(--color-bg-dark)]' : 'bg-[var(--color-bg)]'
+  ]}
+>
+  <!-- Radial glow central -->
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(241,35,35,0.12)_0%,transparent_70%)] pointer-events-none"></div>
+
+  <div class="max-w-6xl mx-auto px-8 relative z-10">
+    <div data-reveal>
+      <h2
+        class="font-display text-[clamp(40px,6vw,80px)] leading-[1.0] tracking-[-2px] text-white mb-6"
+        set:html={title}
+      />
+
+      {subtitle && (
+        <p class="text-xl text-white/55 font-light mb-14 max-w-lg mx-auto">{subtitle}</p>
+      )}
+
+      <a
+        href={ctaHref}
+        class="inline-flex items-center gap-3 bg-[var(--color-primary)] text-white font-bold text-[17px] tracking-widest uppercase px-14 py-5 rounded-sm no-underline transition-all duration-200 hover:brightness-90 hover:-translate-y-0.5"
+      >
+        {ctaText}
+        <svg width="16" height="16" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+
+      {disclaimer && (
+        <p class="mt-6 text-xs text-[#9a9a9a] tracking-widest">{disclaimer}</p>
+      )}
+    </div>
+  </div>
+</section>

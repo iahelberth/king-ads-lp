@@ -1,0 +1,33 @@
+---
+/**
+ * Badge.astro — Tag / label de destaque
+ *
+ * Props:
+ *   variant - 'default' | 'filled' | 'outline'
+ *   pulse   - Ponto pulsante (default: false)
+ */
+interface Props {
+  variant?: 'default' | 'filled' | 'outline';
+  pulse?: boolean;
+  class?: string;
+}
+
+const { variant = 'default', pulse = false, class: extraClass = '' } = Astro.props;
+
+const variantClass = {
+  default: 'bg-[var(--color-primary)]/15 border border-[var(--color-primary)]/40 text-[var(--color-primary)]',
+  filled:  'bg-[var(--color-primary)] text-white',
+  outline: 'bg-transparent border border-[var(--color-primary)]/40 text-[var(--color-primary)]',
+}[variant];
+---
+
+<span class:list={[
+  'inline-flex items-center gap-2 px-4 py-1.5 rounded-sm text-[11px] font-bold tracking-[3px] uppercase',
+  variantClass,
+  extraClass,
+]}>
+  {pulse && (
+    <span class="w-1.5 h-1.5 bg-current rounded-full animate-pulse"></span>
+  )}
+  <slot />
+</span>

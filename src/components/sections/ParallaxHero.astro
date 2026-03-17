@@ -1,0 +1,310 @@
+---
+/**
+ * ParallaxHero.astro — Hero com efeito parallax CSS puro
+ * Usa scroll-driven animations para mover camadas independentes.
+ * Zero JS. GPU-acelerado via compositor.
+ *
+ * Props:
+ *   title      - Título principal (aceita HTML)
+ *   subtitle   - Subtítulo
+ *   badge      - Badge topo
+ *   cta1Text   - Botão primário
+ *   cta1Href   - Link do botão primário
+ *   cta2Text   - Botão secundário (opcional)
+ *   cta2Href   - Link
+ *   bgImage    - URL da imagem de fundo
+ *   bgVideo    - URL do vídeo de fundo (mp4) — tem precedência sobre bgImage
+ *   minHeight  - Altura mínima (default: '100vh')
+ *   overlay    - Intensidade do overlay: 'light' | 'medium' | 'heavy' (default: 'medium')
+ */
+interface Props {
+  title: string;
+  subtitle?: string;
+  badge?: string;
+  cta1Text?: string;
+  cta1Href?: string;
+  cta2Text?: string;
+  cta2Href?: string;
+  bgImage?: string;
+  bgVideo?: string;
+  minHeight?: string;
+  overlay?: 'light' | 'medium' | 'heavy';
+}
+
+const {
+  title,
+  subtitle,
+  badge,
+  cta1Text,
+  cta1Href = '#',
+  cta2Text,
+  cta2Href = '#',
+  bgImage,
+  bgVideo,
+  minHeight = '100vh',
+  overlay = 'medium',
+} = Astro.props;
+
+const overlayIntensity = { light: 0.35, medium: 0.55, heavy: 0.75 }[overlay];
+---
+
+<section
+  class="phero"
+  style={`--min-h: ${minHeight}; --overlay-opacity: ${overlayIntensity};`}
+  aria-label="Seção hero"
+>
+  <!-- Camada 1: Background (parallax mais lento) -->
+  <div class="phero__bg-layer" aria-hidden="true">
+    {bgVideo ? (
+      <video
+        class="phero__bg-media"
+        src={bgVideo}
+        autoplay
+        muted
+        loop
+        playsinline
+      />
+    ) : bgImage ? (
+      <div
+        class="phero__bg-media phero__bg-image"
+        style={`background-image: url('${bgImage}');`}
+      ></div>
+    ) : (
+      <div class="phero__bg-gradient"></div>
+    )}
+  </div>
+
+  <!-- Camada 2: Overlay gradient -->
+  <div class="phero__overlay" aria-hidden="true"></div>
+
+  <!-- Camada 3: Partículas decorativas (parallax médio) -->
+  <div class="phero__particles" aria-hidden="true">
+    <div class="phero__particle phero__particle--1"></div>
+    <div class="phero__particle phero__particle--2"></div>
+    <div class="phero__particle phero__particle--3"></div>
+  </div>
+
+  <!-- Camada 4: Conteúdo (estático / mais rápido no scroll) -->
+  <div class="container phero__content" data-reveal>
+    {badge && (
+      <div class="badge badge--pulse phero__badge">{badge}</div>
+    )}
+
+    <h1 class="text-hero phero__title" set:html={title} />
+
+    {subtitle && (
+      <p class="text-lead phero__subtitle">{subtitle}</p>
+    )}
+
+    {(cta1Text || cta2Text) && (
+      <div class="phero__ctas">
+        {cta1Text && (
+          <a href={cta1Href} class="btn btn--primary">
+            {cta1Text}
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        )}
+        {cta2Text && (
+          <a href={cta2Href} class="btn btn--outline">{cta2Text}</a>
+        )}
+      </div>
+    )}
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="phero__scroll-hint" aria-hidden="true">
+    <div class="phero__scroll-line"></div>
+  </div>
+</section>
+
+<style>
+  .phero {
+    position: relative;
+    min-height: var(--min-h, 100vh);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  /* ── Camada BG: parallax lento ──────────────────────────── */
+  .phero__bg-layer {
+    position: absolute;
+    inset: -20%; /* Margem para o parallax não mostrar borda */
+    z-index: 0;
+    will-change: transform;
+  }
+
+  @supports (animation-timeline: scroll()) {
+    .phero__bg-layer {
+      animation: phero-parallax-bg linear both;
+      animation-timeline: scroll(root);
+      animation-range: entry 0% exit 100%;
+    }
+    @keyframes phero-parallax-bg {
+      from { transform: translateY(0); }
+      to   { transform: translateY(20%); }
+    }
+  }
+
+  .phero__bg-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .phero__bg-image {
+    background-size: cover;
+    background-position: center;
+    filter: saturate(1.3) brightness(0.6);
+  }
+
+  .phero__bg-gradient {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      ellipse at 60% 40%,
+      color-mix(in srgb, var(--color-brand) 20%, var(--color-bg)) 0%,
+      var(--color-bg) 70%
+    );
+  }
+
+  /* ── Overlay ────────────────────────────────────────────── */
+  .phero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to top,
+      color-mix(in srgb, var(--color-bg) 95%, transparent) 0%,
+      rgba(0,0,0, var(--overlay-opacity, 0.55)) 50%,
+      rgba(0,0,0,0.2) 100%
+    );
+  }
+
+  /* ── Partículas (parallax médio) ────────────────────────── */
+  .phero__particles {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    overflow: hidden;
+    will-change: transform;
+  }
+
+  @supports (animation-timeline: scroll()) {
+    .phero__particles {
+      animation: phero-parallax-mid linear both;
+      animation-timeline: scroll(root);
+      animation-range: entry 0% exit 100%;
+    }
+    @keyframes phero-parallax-mid {
+      from { transform: translateY(0); }
+      to   { transform: translateY(10%); }
+    }
+  }
+
+  .phero__particle {
+    position: absolute;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--color-brand) 15%, transparent);
+    filter: blur(50px);
+  }
+
+  .phero__particle--1 {
+    width: 500px; height: 500px;
+    top: -150px; right: -50px;
+    animation: float 9s ease-in-out infinite;
+  }
+  .phero__particle--2 {
+    width: 350px; height: 350px;
+    bottom: 0; left: -80px;
+    background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+    animation: float-reverse 12s ease-in-out infinite;
+  }
+  .phero__particle--3 {
+    width: 200px; height: 200px;
+    top: 40%; left: 40%;
+    background: color-mix(in srgb, var(--color-brand) 8%, transparent);
+    animation: float 16s ease-in-out infinite;
+  }
+
+  /* ── Conteúdo ───────────────────────────────────────────── */
+  .phero__content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-block: clamp(6rem, 12vh, 10rem);
+    max-width: 820px;
+  }
+
+  .phero__badge { width: fit-content; }
+
+  .phero__title {
+    color: var(--color-text);
+  }
+
+  .phero__subtitle {
+    max-width: 56ch;
+    opacity: 0.8;
+  }
+
+  .phero__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  /* ── Scroll hint ────────────────────────────────────────── */
+  .phero__scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.375rem;
+    opacity: 0.4;
+
+    /* Desaparece ao scrollar */
+  }
+
+  @supports (animation-timeline: scroll()) {
+    .phero__scroll-hint {
+      animation: phero-hint-fade linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0px 200px;
+    }
+    @keyframes phero-hint-fade {
+      from { opacity: 0.4; }
+      to   { opacity: 0; }
+    }
+  }
+
+  .phero__scroll-line {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, var(--color-text), transparent);
+    animation: scroll-line 2s ease-in-out infinite;
+  }
+
+  @keyframes scroll-line {
+    0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
+    50%  { transform: scaleY(1); transform-origin: top; }
+    51%  { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .phero__scroll-line { animation: none; }
+    .phero__particle { animation: none; }
+    .phero__bg-layer, .phero__particles { animation: none; }
+  }
+</style>

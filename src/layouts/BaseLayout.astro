@@ -1,0 +1,92 @@
+---
+/**
+ * BaseLayout.astro — Layout base de todas as páginas
+ * Inclui: SEO, fonts, global CSS, Nav, Footer, scripts Motion One
+ */
+import SEO from '../components/layout/SEO.astro';
+import StickyNav from '../components/layout/StickyNav.astro';
+import Footer from '../components/layout/Footer.astro';
+import '../../design-system/tokens.css';
+import '../../design-system/typography.css';
+import '../styles/global.css';
+import '../styles/king-tokens.css';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  canonical?: string;
+  noindex?: boolean;
+  // Nav config
+  logo?: string;
+  navLinks?: { label: string; href: string }[];
+  ctaText?: string;
+  ctaHref?: string;
+  // Footer config
+  footerColumns?: {
+    title: string;
+    links: { label: string; href: string }[];
+  }[];
+  footerCopyright?: string;
+}
+
+const {
+  title,
+  description,
+  image,
+  canonical,
+  noindex,
+  logo = 'Site',
+  navLinks = [],
+  ctaText,
+  ctaHref = '#',
+  footerColumns = [],
+  footerCopyright,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <!-- Variable fonts: Inter Variable (corpo) + Archivo Black (display) -->
+  <!-- Preload das fontes críticas -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <SEO
+    title={title}
+    description={description}
+    image={image}
+    canonical={canonical}
+    noindex={noindex}
+  />
+</head>
+<body>
+  <StickyNav logo={logo} links={navLinks} ctaText={ctaText} ctaHref={ctaHref} />
+  <main>
+    <slot />
+  </main>
+  <Footer columns={footerColumns} copyright={footerCopyright ?? `© ${new Date().getFullYear()} ${logo}. Todos os direitos reservados.`} />
+
+  <!-- Scroll reveal: fallback para browsers sem animation-timeline: view() -->
+  <script>
+    const hasScrollTimeline = CSS.supports('animation-timeline', 'view()');
+    if (!hasScrollTimeline) {
+      const revealEls = document.querySelectorAll('[data-reveal]');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            const delay = parseInt(entry.target.getAttribute('data-delay') ?? '0') * 90;
+            setTimeout(() => entry.target.classList.add('visible'), delay);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealEls.forEach(el => observer.observe(el));
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+---
+/**
+ * SplitSection.astro — Layout 50/50 imagem + texto
+ * Variante clássica que funciona para "Sobre", "Como funciona", etc.
+ *
+ * Props:
+ *   tag         - Eyebrow text
+ *   title       - Título (aceita HTML)
+ *   body        - Texto corpo (aceita HTML)
+ *   items       - Lista de features/bullets (opcional)
+ *   cta         - { text, href } — botão CTA (opcional)
+ *   image       - URL da imagem
+ *   imageAlt    - Alt text da imagem
+ *   imagePos    - 'left' | 'right' (default: 'right')
+ *   bg          - 'default' | 'surface' (default: 'default')
+ *   imageStyle  - 'natural' | 'rounded' | 'masked' (default: 'rounded')
+ */
+interface BulletItem {
+  icon?: string;
+  text: string;
+}
+
+interface Props {
+  tag?: string;
+  title: string;
+  body?: string;
+  items?: BulletItem[];
+  cta?: { text: string; href: string };
+  image: string;
+  imageAlt?: string;
+  imagePos?: 'left' | 'right';
+  bg?: 'default' | 'surface';
+  imageStyle?: 'natural' | 'rounded' | 'masked';
+}
+
+const {
+  tag,
+  title,
+  body,
+  items = [],
+  cta,
+  image,
+  imageAlt = '',
+  imagePos = 'right',
+  bg = 'default',
+  imageStyle = 'rounded',
+} = Astro.props;
+---
+
+<section
+  class:list={['section split', `split--bg-${bg}`]}
+>
+  <div class="container">
+    <div class:list={[
+      'split__grid',
+      imagePos === 'left' ? 'split__grid--img-left' : '',
+    ]}>
+
+      <!-- Texto -->
+      <div
+        class="split__content"
+        data-reveal={imagePos === 'right' ? 'left' : 'right'}
+      >
+        {tag && <span class="text-eyebrow">{tag}</span>}
+        <h2 set:html={title} />
+
+        {body && (
+          <p class="text-lead split__body" set:html={body} />
+        )}
+
+        {items.length > 0 && (
+          <ul class="split__bullets" role="list">
+            {items.map(item => (
+              <li class="split__bullet">
+                <span class="split__bullet-icon" aria-hidden="true">
+                  {item.icon ?? '✓'}
+                </span>
+                <span>{item.text}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {cta && (
+          <a href={cta.href} class="btn btn--primary split__cta">
+            {cta.text}
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        )}
+      </div>
+
+      <!-- Imagem -->
+      <div
+        class:list={[
+          'split__image-wrap',
+          `split__image-wrap--${imageStyle}`,
+        ]}
+        data-reveal={imagePos === 'right' ? 'right' : 'left'}
+      >
+        <img
+          src={image}
+          alt={imageAlt}
+          class="split__image"
+          loading="lazy"
+          decoding="async"
+        />
+
+        <!-- Decoração: bordas anguladas (opcional, ativa em 'masked') -->
+        {imageStyle === 'masked' && (
+          <div class="split__image-decoration" aria-hidden="true"></div>
+        )}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ── Backgrounds ─────────────────────────────────────────── */
+  .split--bg-default { background-color: var(--color-bg); }
+  .split--bg-surface { background-color: var(--color-surface); }
+
+  /* ── Grid ────────────────────────────────────────────────── */
+  .split__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(3rem, 6vw, 6rem);
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .split__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    /* Imagem à esquerda: inverte ordem */
+    .split__grid--img-left .split__content { order: 2; }
+    .split__grid--img-left .split__image-wrap { order: 1; }
+  }
+
+  /* ── Conteúdo ────────────────────────────────────────────── */
+  .split__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .split__body {
+    max-width: none;
+    opacity: 0.8;
+  }
+
+  /* ── Bullets ─────────────────────────────────────────────── */
+  .split__bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .split__bullet {
+    display: flex;
+    align-items: baseline;
+    gap: 0.875rem;
+    font-size: var(--_text-sm);
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  .split__bullet-icon {
+    color: var(--color-brand);
+    font-size: var(--_text-sm);
+    flex-shrink: 0;
+    font-weight: 700;
+    line-height: 1.6;
+  }
+
+  .split__cta { width: fit-content; }
+
+  /* ── Imagem ──────────────────────────────────────────────── */
+  .split__image-wrap {
+    position: relative;
+    container-type: inline-size;
+  }
+
+  .split__image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Variante: natural (sem raio) */
+  .split__image-wrap--natural .split__image {
+    border-radius: 0;
+  }
+
+  /* Variante: rounded */
+  .split__image-wrap--rounded .split__image {
+    border-radius: var(--radius-lg);
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  /* Variante: masked (com decorações geométricas) */
+  .split__image-wrap--masked .split__image {
+    border-radius: var(--_radius-lg) var(--_radius-lg) var(--_radius-xl) var(--_radius-sm);
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+
+  .split__image-decoration {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 2px solid var(--color-border-brand);
+    transform: translate(12px, 12px);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  /* Responsivo: reduz aspect ratio em telas menores */
+  @container (max-width: 400px) {
+    .split__image-wrap--masked .split__image { aspect-ratio: 4 / 3; }
+    .split__image-wrap--rounded .split__image { aspect-ratio: 16 / 9; }
+  }
+</style>

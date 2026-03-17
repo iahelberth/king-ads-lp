@@ -1,0 +1,68 @@
+---
+/**
+ * Stats.astro — Grid de estatísticas com counter animado
+ *
+ * Props:
+ *   items  - Array de { number, prefix?, suffix?, label }
+ *   cols   - Número de colunas (2, 3 ou 4)
+ */
+interface StatItem {
+  number: number;
+  prefix?: string;
+  suffix?: string;
+  label: string;
+}
+
+interface Props {
+  items: StatItem[];
+  cols?: 2 | 3 | 4;
+}
+
+const { items, cols = 4 } = Astro.props;
+
+const gridClass: Record<number, string> = {
+  2: 'grid-cols-2',
+  3: 'grid-cols-1 md:grid-cols-3',
+  4: 'grid-cols-2 md:grid-cols-4',
+};
+---
+
+<section id="stats" class="py-20 border-b border-white/6">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class:list={['grid', gridClass[cols] ?? gridClass[4]]}>
+      {items.map((item, i) => (
+        <div
+          class="stat-item py-10 px-8 text-center border-r border-white/6 last:border-r-0"
+          data-reveal
+          data-delay={String(i + 1)}
+        >
+          <span
+            class="stat-number block font-display text-[clamp(44px,5vw,72px)] text-[var(--color-primary)] leading-none"
+            data-target={item.number}
+            data-prefix={item.prefix ?? ''}
+            data-suffix={item.suffix ?? ''}
+          >
+            {item.prefix ?? ''}{0}{item.suffix ?? ''}
+          </span>
+          <span class="block text-[13px] text-[#9a9a9a] tracking-[2px] uppercase mt-2">
+            {item.label}
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  import { animateCounterFull, onVisible } from '../../utils/motion';
+
+  document.querySelectorAll('.stat-number').forEach(el => {
+    const target = parseInt((el as HTMLElement).dataset.target ?? '0');
+    const prefix = (el as HTMLElement).dataset.prefix ?? '';
+    const suffix = (el as HTMLElement).dataset.suffix ?? '';
+
+    onVisible(el, (el) => {
+      animateCounterFull(el, { target, prefix, suffix });
+    }, 0.5);
+  });
+</script>

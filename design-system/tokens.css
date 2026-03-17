@@ -1,0 +1,246 @@
+/**
+ * design-system/tokens.css
+ * Sistema de design tokens em 3 níveis semânticos.
+ *
+ * COMO USAR POR CLIENTE:
+ *   Crie clientes/<cliente>/tokens.css e sobrescreva apenas os tokens
+ *   do Nível 2 (semânticos). O Nível 1 (primitivos) é a escala bruta —
+ *   não altere sem intenção. O Nível 3 é derivado automaticamente.
+ *
+ * IMPORTAR no BaseLayout.astro ANTES do global.css:
+ *   import '../../design-system/tokens.css';
+ */
+
+/* ═══════════════════════════════════════════════════════════
+   NÍVEL 1 — PRIMITIVOS (escala de valores brutos)
+   Não usar diretamente nos componentes.
+═══════════════════════════════════════════════════════════ */
+:root {
+  /* Cores brutas */
+  --_red-400: #f87171;
+  --_red-500: #ef4444;
+  --_red-600: #dc2626;
+  --_red-700: #b91c1c;
+
+  --_teal-300: #5eead4;
+  --_teal-400: #2dd4bf;
+  --_teal-500: #14b8a6;
+  --_teal-600: #0d9488;
+
+  --_blue-400: #60a5fa;
+  --_blue-500: #3b82f6;
+  --_blue-600: #2563eb;
+
+  --_violet-400: #a78bfa;
+  --_violet-500: #8b5cf6;
+
+  --_amber-400: #fbbf24;
+  --_amber-500: #f59e0b;
+
+  --_lime-400: #a3e635;
+  --_lime-500: #84cc16;
+
+  --_neutral-0:   #ffffff;
+  --_neutral-50:  #fafafa;
+  --_neutral-100: #f5f5f5;
+  --_neutral-200: #e5e5e5;
+  --_neutral-300: #d4d4d4;
+  --_neutral-400: #a3a3a3;
+  --_neutral-500: #737373;
+  --_neutral-600: #525252;
+  --_neutral-700: #404040;
+  --_neutral-800: #262626;
+  --_neutral-850: #1a1a1a;
+  --_neutral-900: #141414;
+  --_neutral-950: #0a0a0a;
+  --_neutral-980: #070707;
+
+  /* Espaçamentos base */
+  --_space-1:  0.25rem;   /* 4px  */
+  --_space-2:  0.5rem;    /* 8px  */
+  --_space-3:  0.75rem;   /* 12px */
+  --_space-4:  1rem;      /* 16px */
+  --_space-5:  1.25rem;   /* 20px */
+  --_space-6:  1.5rem;    /* 24px */
+  --_space-8:  2rem;      /* 32px */
+  --_space-10: 2.5rem;    /* 40px */
+  --_space-12: 3rem;      /* 48px */
+  --_space-16: 4rem;      /* 64px */
+  --_space-20: 5rem;      /* 80px */
+  --_space-24: 6rem;      /* 96px */
+  --_space-32: 8rem;      /* 128px */
+
+  /* Raios */
+  --_radius-sm: 2px;
+  --_radius-md: 6px;
+  --_radius-lg: 12px;
+  --_radius-xl: 20px;
+  --_radius-full: 9999px;
+
+  /* Tipografia — escala modular (1.25 minor third) */
+  --_text-xs:   0.75rem;   /* 12px */
+  --_text-sm:   0.875rem;  /* 14px */
+  --_text-base: 1rem;      /* 16px */
+  --_text-lg:   1.125rem;  /* 18px */
+  --_text-xl:   1.25rem;   /* 20px */
+  --_text-2xl:  1.5rem;    /* 24px */
+  --_text-3xl:  1.875rem;  /* 30px */
+  --_text-4xl:  2.25rem;   /* 36px */
+  --_text-5xl:  3rem;      /* 48px */
+  --_text-6xl:  3.75rem;   /* 60px */
+  --_text-7xl:  4.5rem;    /* 72px */
+  --_text-8xl:  6rem;      /* 96px */
+
+  /* Durations */
+  --_dur-fast:   150ms;
+  --_dur-base:   250ms;
+  --_dur-slow:   400ms;
+  --_dur-slower: 600ms;
+  --_dur-slowest: 900ms;
+
+  /* Easing */
+  --_ease-out:   cubic-bezier(0.0, 0.0, 0.2, 1.0);
+  --_ease-in-out: cubic-bezier(0.4, 0.0, 0.2, 1.0);
+  --_ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1.0);
+  --_ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   NÍVEL 2 — SEMÂNTICOS (intenção de uso)
+   ESTES são os tokens para sobrescrever por cliente.
+   Crie clientes/<cliente>/tokens.css com apenas estas vars.
+═══════════════════════════════════════════════════════════ */
+:root {
+  /* ── Cores de marca ───────────────────── */
+  --color-brand:         var(--_red-600);
+  --color-brand-dim:     var(--_red-700);
+  --color-brand-bright:  var(--_red-400);
+  --color-accent:        var(--_amber-400);
+
+  /* ── Superfícies ───────────────────────── */
+  --color-bg:            var(--_neutral-980);
+  --color-surface:       var(--_neutral-900);
+  --color-surface-raised: var(--_neutral-850);
+  --color-surface-overlay: rgba(255,255,255,0.04);
+
+  /* ── Texto ─────────────────────────────── */
+  --color-text:          var(--_neutral-0);
+  --color-text-muted:    var(--_neutral-500);
+  --color-text-faint:    var(--_neutral-700);
+
+  /* ── Bordas ────────────────────────────── */
+  --color-border:        rgba(255,255,255,0.08);
+  --color-border-brand:  color-mix(in srgb, var(--color-brand) 35%, transparent);
+
+  /* ── Glassmorphism ─────────────────────── */
+  --glass-bg:            rgba(255,255,255,0.05);
+  --glass-border:        rgba(255,255,255,0.12);
+  --glass-blur:          16px;
+  --glass-shadow:        0 8px 32px rgba(0,0,0,0.36);
+
+  /* ── Tipografia ────────────────────────── */
+  --font-display:        'Archivo Black', 'Inter Variable', sans-serif;
+  --font-body:           'Inter Variable', 'Inter', sans-serif;
+  --font-mono:           'JetBrains Mono', 'Fira Code', monospace;
+
+  /* ── Fluid typography (clamp) ───────────── */
+  --text-hero:     clamp(3rem, 8vw + 0.5rem, 7rem);
+  --text-h1:       clamp(2.5rem, 6vw, 5.5rem);
+  --text-h2:       clamp(1.875rem, 4vw, 3.5rem);
+  --text-h3:       clamp(1.25rem, 2.5vw, 2rem);
+  --text-lead:     clamp(1rem, 1.5vw, 1.25rem);
+  --text-body:     clamp(0.9375rem, 1.2vw, 1.0625rem);
+  --text-caption:  clamp(0.75rem, 0.9vw, 0.875rem);
+
+  /* ── Espaçamento fluido ─────────────────── */
+  --space-section: clamp(4rem, 8vw, 7rem);
+  --space-content: clamp(1.5rem, 4vw, 3rem);
+  --space-gap:     clamp(1rem, 2vw, 2rem);
+
+  /* ── Layout ─────────────────────────────── */
+  --container-max:  1200px;
+  --container-pad:  clamp(1rem, 5vw, 3rem);
+  --radius:         var(--_radius-sm);
+  --radius-card:    var(--_radius-md);
+  --radius-lg:      var(--_radius-lg);
+
+  /* ── Animações ──────────────────────────── */
+  --transition-base: var(--_dur-base) var(--_ease-out);
+  --transition-slow: var(--_dur-slow) var(--_ease-smooth);
+  --transition-spring: var(--_dur-slow) var(--_ease-spring);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   NÍVEL 3 — COMPONENTES (derivados automáticos)
+   Não sobrescrever — estes refletem o Nível 2 automaticamente.
+═══════════════════════════════════════════════════════════ */
+:root {
+  /* Botão primário */
+  --btn-primary-bg:    var(--color-brand);
+  --btn-primary-text:  var(--color-text);
+  --btn-primary-hover: var(--color-brand-dim);
+
+  /* Botão outline */
+  --btn-outline-border: var(--color-border);
+  --btn-outline-text:   var(--color-text);
+  --btn-outline-hover:  var(--color-border-brand);
+
+  /* Card */
+  --card-bg:      var(--color-surface);
+  --card-border:  var(--color-border);
+  --card-shadow:  0 1px 3px rgba(0,0,0,0.4);
+  --card-hover-bg: var(--color-surface-raised);
+
+  /* Badge */
+  --badge-bg:     var(--color-border-brand);
+  --badge-text:   var(--color-brand);
+  --badge-border: var(--color-border-brand);
+
+  /* Nav */
+  --nav-bg-scrolled:  rgba(7,7,7,0.92);
+  --nav-border:       var(--color-border);
+
+  /* Input */
+  --input-bg:     var(--color-surface);
+  --input-border: var(--color-border);
+  --input-focus:  var(--color-brand);
+  --input-text:   var(--color-text);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   DARK MODE — suporte nativo (ativo por padrão no dark theme)
+   Para clientes com tema claro, usar prefers-color-scheme: light
+═══════════════════════════════════════════════════════════ */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --color-bg:            var(--_neutral-50);
+    --color-surface:       var(--_neutral-0);
+    --color-surface-raised: var(--_neutral-100);
+    --color-surface-overlay: rgba(0,0,0,0.03);
+    --color-text:          var(--_neutral-950);
+    --color-text-muted:    var(--_neutral-600);
+    --color-text-faint:    var(--_neutral-400);
+    --color-border:        rgba(0,0,0,0.1);
+    --glass-bg:            rgba(255,255,255,0.7);
+    --glass-border:        rgba(255,255,255,0.9);
+    --nav-bg-scrolled:     rgba(250,250,250,0.95);
+    --card-shadow:         0 1px 3px rgba(0,0,0,0.12);
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   REDUCED MOTION — respeitar preferência do usuário
+═══════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --_dur-fast:    0ms;
+    --_dur-base:    0ms;
+    --_dur-slow:    0ms;
+    --_dur-slower:  0ms;
+    --_dur-slowest: 0ms;
+  }
+}

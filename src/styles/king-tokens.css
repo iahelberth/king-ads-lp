@@ -1,0 +1,64 @@
+/**
+ * king-tokens.css — Tokens semânticos do Barcelona Pub Crawl by KING
+ * Sobrescreve o Nível 2 do design-system padrão.
+ *
+ * Paleta: Dark luxury + gold accents
+ *   Fundo:  #100f0f (preto quase puro)
+ *   Brand:  #e6c600 (dourado — CTAs, destaques)
+ *   Texto:  #ffffff
+ */
+
+:root {
+  /* ── Cores de marca ─────────────────────── */
+  --color-brand:          #e6c600;
+  --color-brand-dim:      #b89e00;
+  --color-brand-bright:   #f5d700;
+  --color-accent:         #e6c600;
+
+  /* ── Superfícies ─────────────────────────── */
+  --color-bg:             #100f0f;
+  --color-surface:        #1a1a1a;
+  --color-surface-raised: #242424;
+  --color-surface-overlay: rgba(230,198,0,0.05);
+
+  /* ── Texto ───────────────────────────────── */
+  --color-text:           #ffffff;
+  --color-text-muted:     rgba(255,255,255,0.60);
+  --color-text-faint:     rgba(255,255,255,0.35);
+
+  /* ── Bordas ──────────────────────────────── */
+  --color-border:         rgba(255,255,255,0.08);
+  --color-border-brand:   rgba(230,198,0,0.25);
+
+  /* ── Glassmorphism ───────────────────────── */
+  --glass-bg:             rgba(230,198,0,0.04);
+  --glass-border:         rgba(230,198,0,0.12);
+  --glass-blur:           12px;
+  --glass-shadow:         0 8px 32px rgba(0,0,0,0.48);
+
+  /* ── Tipografia ──────────────────────────── */
+  --font-display:         'Poppins', sans-serif;
+  --font-body:            'Poppins', sans-serif;
+
+  /* ── Layout ──────────────────────────────── */
+  --radius:               4px;
+  --radius-card:          8px;
+  --radius-lg:            12px;
+
+  /* ── Aliases de compatibilidade (para componentes com Tailwind) ── */
+  --color-primary:        #e6c600;
+  --color-bg-dark:        #0a0a0a;
+  --color-bg-card:        #1a1a1a;
+
+  /* ── Componentes ─────────────────────────── */
+  --btn-primary-bg:       #e6c600;
+  --btn-primary-text:     #100f0f;
+  --btn-primary-hover:    #f5d700;
+
+  --badge-bg:             rgba(230,198,0,0.12);
+  --badge-text:           #e6c600;
+  --badge-border:         rgba(230,198,0,0.25);
+
+  --nav-bg-scrolled:      rgba(16,15,15,0.96);
+  --nav-border:           rgba(230,198,0,0.12);
+}

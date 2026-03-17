@@ -1,0 +1,88 @@
+---
+/**
+ * Testimonials.astro — Depoimentos de clientes
+ *
+ * Props:
+ *   tag    - Tag topo da seção
+ *   title  - Título
+ *   items  - Array de { name, role, company, text, avatar?, rating? }
+ *   variant - 'grid' | 'list' (default: 'grid')
+ */
+interface Testimonial {
+  name: string;
+  role?: string;
+  company?: string;
+  text: string;
+  avatar?: string;
+  rating?: number; // 1-5
+}
+
+interface Props {
+  tag?: string;
+  title?: string;
+  items: Testimonial[];
+  variant?: 'grid' | 'list';
+}
+
+const { tag, title, items, variant = 'grid' } = Astro.props;
+---
+
+<section id="testimonials" class="py-28 bg-[var(--color-bg)]">
+  <div class="max-w-6xl mx-auto px-8">
+    {(tag || title) && (
+      <div class="text-center mb-16" data-reveal>
+        {tag && (
+          <span class="inline-block text-[11px] font-bold tracking-[3px] uppercase text-[var(--color-primary)] border border-[var(--color-primary)]/25 px-4 py-1.5 rounded-sm mb-5">
+            {tag}
+          </span>
+        )}
+        {title && (
+          <h2 class="font-display text-[clamp(36px,5vw,60px)] leading-[1.05] tracking-[-1px] text-white" set:html={title} />
+        )}
+      </div>
+    )}
+
+    <div class:list={[
+      variant === 'grid' ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5' : 'flex flex-col gap-5'
+    ]}>
+      {items.map((item, i) => (
+        <div
+          class="bg-[var(--color-bg-card)] border border-white/5 p-9 rounded-sm relative"
+          data-reveal
+          data-delay={String((i % 3) + 1)}
+        >
+          <!-- Rating -->
+          {item.rating && (
+            <div class="flex gap-1 mb-5">
+              {Array.from({ length: 5 }).map((_, j) => (
+                <svg width="14" height="14" viewBox="0 0 14 14" fill={j < item.rating! ? '#F12323' : 'none'} stroke="#F12323" stroke-width="1.2">
+                  <path d="M7 1l1.5 3.5L12 5l-2.5 2.5.5 3.5L7 9.5 4 11l.5-3.5L2 5l3.5-.5L7 1z"/>
+                </svg>
+              ))}
+            </div>
+          )}
+
+          <p class="text-white/70 text-[15px] leading-[1.8] mb-8 italic">"{item.text}"</p>
+
+          <div class="flex items-center gap-4">
+            {item.avatar ? (
+              <img src={item.avatar} alt={item.name} class="w-10 h-10 rounded-full object-cover" loading="lazy" />
+            ) : (
+              <div class="w-10 h-10 rounded-full bg-[var(--color-primary)]/20 flex items-center justify-center text-[var(--color-primary)] font-bold text-sm">
+                {item.name.charAt(0)}
+              </div>
+            )}
+            <div>
+              <div class="font-bold text-sm text-white">{item.name}</div>
+              {(item.role || item.company) && (
+                <div class="text-[12px] text-[#9a9a9a]">
+                  {item.role}{item.role && item.company ? ' · ' : ''}{item.company}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

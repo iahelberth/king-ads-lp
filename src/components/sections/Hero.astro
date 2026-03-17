@@ -1,0 +1,350 @@
+---
+/**
+ * Hero.astro — Seção hero com 3 variantes
+ *
+ * variant: 'centered' | 'split-left' | 'split-right'
+ *
+ * Props:
+ *   badge       - Texto do badge/tag topo (ex: "Barcelona Nightclubs Pass")
+ *   title       - Título principal (aceita HTML com <br> e <span>)
+ *   subtitle    - Subtítulo / descrição abaixo do título
+ *   cta1Text    - Texto do botão primário
+ *   cta1Href    - Link do botão primário
+ *   cta2Text    - Texto do botão secundário (opcional)
+ *   cta2Href    - Link do botão secundário
+ *   hint        - Texto pequeno abaixo dos botões
+ *   image       - URL da imagem (para variantes split)
+ *   bgImage     - URL da imagem de fundo (para variant centered)
+ *   variant     - 'centered' | 'split-left' | 'split-right'
+ *   minHeight   - Altura mínima (default: '100vh')
+ *   animated    - true = anima na entrada (default: true)
+ *   floatingOrbs - true = exibe orbs decorativos flutuantes (default: true)
+ */
+interface Props {
+  badge?: string;
+  title: string;
+  subtitle?: string;
+  cta1Text?: string;
+  cta1Href?: string;
+  cta2Text?: string;
+  cta2Href?: string;
+  hint?: string;
+  image?: string;
+  bgImage?: string;
+  variant?: 'centered' | 'split-left' | 'split-right';
+  minHeight?: string;
+  animated?: boolean;
+  floatingOrbs?: boolean;
+}
+
+const {
+  badge,
+  title,
+  subtitle,
+  cta1Text,
+  cta1Href = '#',
+  cta2Text,
+  cta2Href = '#',
+  hint,
+  image,
+  bgImage,
+  variant = 'centered',
+  minHeight = '100vh',
+  animated = true,
+  floatingOrbs = true,
+} = Astro.props;
+
+const isSplit = variant === 'split-left' || variant === 'split-right';
+---
+
+<section
+  id="hero"
+  class:list={['hero', `hero--${variant}`]}
+  style={`min-height: ${minHeight};`}
+>
+  <!-- Orbs decorativos flutuantes -->
+  {floatingOrbs && (
+    <div class="hero__orbs" aria-hidden="true">
+      <div class="hero__orb hero__orb--1 animate-float"></div>
+      <div class="hero__orb hero__orb--2 animate-float-reverse"></div>
+      <div class="hero__orb hero__orb--3 animate-float"></div>
+    </div>
+  )}
+
+  <!-- Background image (variant centered) -->
+  {bgImage && (
+    <div
+      class="hero__bg"
+      style={`background-image: url('${bgImage}');`}
+    ></div>
+  )}
+
+  <!-- Gradient overlay -->
+  <div class="hero__overlay"></div>
+
+  <!-- Conteúdo -->
+  <div class="container hero__inner">
+    <div class:list={['hero__grid', isSplit ? 'hero__grid--split' : '']}>
+
+      <!-- Texto -->
+      <div
+        class:list={[
+          'hero__content',
+          animated ? 'hero__content--animated' : '',
+          isSplit && variant === 'split-right' ? 'hero__content--order-2' : '',
+        ]}
+      >
+        {badge && (
+          <div class="badge badge--pulse hero__badge">
+            {badge}
+          </div>
+        )}
+
+        <h1
+          class="text-hero hero__title"
+          set:html={title}
+        />
+
+        {subtitle && (
+          <p class="text-lead hero__subtitle">{subtitle}</p>
+        )}
+
+        <!-- CTAs -->
+        {(cta1Text || cta2Text) && (
+          <div class="hero__ctas">
+            {cta1Text && (
+              <a href={cta1Href} class="btn btn--primary">
+                {cta1Text}
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            )}
+            {cta2Text && (
+              <a href={cta2Href} class="btn btn--outline">
+                {cta2Text}
+              </a>
+            )}
+          </div>
+        )}
+
+        {hint && (
+          <p class="hero__hint text-caption" set:html={hint} />
+        )}
+      </div>
+
+      <!-- Imagem (variante split) -->
+      {isSplit && image && (
+        <div class:list={[
+          'hero__image-wrap',
+          variant === 'split-right' ? 'hero__image-wrap--order-1' : '',
+        ]}>
+          <img
+            src={image}
+            alt=""
+            class="hero__image"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ── Hero base ───────────────────────────────────────────── */
+  .hero {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    background-color: var(--color-bg);
+  }
+
+  /* Variante centered: texto centralizado na parte inferior */
+  .hero--centered .hero__inner { padding-bottom: 6rem; }
+  .hero--centered .hero__content { max-width: 780px; }
+
+  /* Variante split: duas colunas */
+  .hero--split-left .hero__grid,
+  .hero--split-right .hero__grid {
+    align-items: center;
+  }
+
+  /* ── Background ──────────────────────────────────────────── */
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: saturate(1.4) brightness(0.38);
+    /* Parallax CSS via scroll timeline */
+    will-change: transform;
+  }
+
+  @supports (animation-timeline: scroll()) {
+    .hero__bg {
+      animation: hero-parallax linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0% 60%;
+    }
+  }
+
+  @keyframes hero-parallax {
+    from { transform: translateY(0); }
+    to   { transform: translateY(15%); }
+  }
+
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      var(--color-bg) 0%,
+      color-mix(in srgb, var(--color-bg) 55%, transparent) 45%,
+      rgba(0,0,0,0.1) 100%
+    );
+  }
+
+  /* ── Orbs decorativos ────────────────────────────────────── */
+  .hero__orbs { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+
+  .hero__orb {
+    position: absolute;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--color-brand) 12%, transparent);
+    filter: blur(60px);
+  }
+
+  .hero__orb--1 {
+    width: 600px; height: 600px;
+    top: -200px; right: -100px;
+    animation-duration: 8s;
+  }
+  .hero__orb--2 {
+    width: 400px; height: 400px;
+    bottom: -100px; left: -80px;
+    background: color-mix(in srgb, var(--color-accent) 8%, transparent);
+    animation-duration: 11s;
+  }
+  .hero__orb--3 {
+    width: 300px; height: 300px;
+    top: 30%; left: 30%;
+    background: color-mix(in srgb, var(--color-brand) 6%, transparent);
+    animation-duration: 14s;
+  }
+
+  /* ── Inner / Grid ─────────────────────────────────────────── */
+  .hero__inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
+
+  .hero__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(2.5rem, 5vw, 5rem);
+  }
+
+  .hero__grid--split {
+    align-items: center;
+    padding-block: clamp(5rem, 10vh, 8rem);
+  }
+
+  @media (min-width: 768px) {
+    .hero__grid--split {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  /* ── Conteúdo ─────────────────────────────────────────────── */
+  .hero__content { display: flex; flex-direction: column; gap: 1.75rem; }
+  .hero__content--order-2 { order: 2; }
+
+  /* Entrada animada (para browsers sem scroll-driven) */
+  .hero__content--animated {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.9s var(--_ease-out), transform 0.9s var(--_ease-out);
+  }
+  .hero__content--animated.hero--ready {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Para browsers com scroll-driven: anima logo na carga */
+  @supports (animation-timeline: view()) {
+    .hero__content--animated {
+      animation: hero-entry 0.9s var(--_ease-out) both;
+      opacity: 1;
+      transform: none;
+    }
+    @keyframes hero-entry {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  }
+
+  .hero__badge { margin-bottom: 0.25rem; }
+
+  .hero__title {
+    color: var(--color-text);
+    max-width: 14ch;
+  }
+
+  .hero__subtitle {
+    max-width: 52ch;
+    opacity: 0.75;
+  }
+
+  .hero__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .hero__hint {
+    color: var(--color-text-muted);
+    margin-top: -0.5rem;
+  }
+
+  /* ── Imagem (split) ───────────────────────────────────────── */
+  .hero__image-wrap {
+    position: relative;
+    container-type: inline-size;
+  }
+  .hero__image-wrap--order-1 { order: 1; }
+
+  .hero__image {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: var(--radius-card);
+  }
+
+  @container (min-width: 400px) {
+    .hero__image { aspect-ratio: 3 / 4; }
+  }
+</style>
+
+{animated && (
+  <script>
+    // Fallback: ativa animação de entrada do hero após load
+    // (scroll-driven browsers já têm via CSS)
+    if (!CSS.supports('animation-timeline', 'view()')) {
+      document.addEventListener('DOMContentLoaded', () => {
+        const heroContent = document.querySelector('.hero__content--animated');
+        if (heroContent) {
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              heroContent.classList.add('hero--ready');
+            });
+          });
+        }
+      });
+    }
+  </script>
+)}

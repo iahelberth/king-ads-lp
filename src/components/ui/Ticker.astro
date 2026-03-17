@@ -1,0 +1,41 @@
+---
+/**
+ * Ticker.astro — Strip animada estilo Barcelona Pass
+ *
+ * Props:
+ *   items - Array de strings para desfilar
+ *   speed - Velocidade da animação em segundos (default: 25)
+ *   bg    - Cor de fundo (default: var(--color-primary))
+ */
+interface Props {
+  items: string[];
+  speed?: number;
+  bg?: string;
+}
+
+const { items, speed = 25, bg = 'var(--color-primary)' } = Astro.props;
+
+// Duplicar para loop contínuo
+const doubled = [...items, ...items];
+---
+
+<div class="strip overflow-hidden py-3.5" style={`background: ${bg};`}>
+  <div
+    class="strip-track flex whitespace-nowrap"
+    style={`animation: ticker ${speed}s linear infinite;`}
+  >
+    {doubled.map(item => (
+      <span class="strip-item inline-flex items-center gap-4 px-8 font-display text-[13px] tracking-[2px] uppercase text-white">
+        {item}
+        <span class="text-[20px] opacity-50">•</span>
+      </span>
+    ))}
+  </div>
+</div>
+
+<style>
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+</style>

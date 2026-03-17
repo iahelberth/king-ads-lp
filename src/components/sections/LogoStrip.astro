@@ -1,0 +1,174 @@
+---
+/**
+ * LogoStrip.astro — Ticker de logos infinito (CSS puro, zero JS)
+ * Duplica os logos para criar loop contínuo sem JS.
+ * Respeita prefers-reduced-motion.
+ *
+ * Props:
+ *   logos    - Array de { src, alt, width? }
+ *   label    - Texto acima do strip (ex: "Empresas que confiam em nós")
+ *   speed    - 'slow' | 'medium' | 'fast' (default: 'medium')
+ *   direction - 'left' | 'right' (default: 'left')
+ *   bg       - 'default' | 'surface' (default: 'default')
+ *   grayscale - true = logos em escala de cinza (default: true)
+ */
+interface Logo {
+  src: string;
+  alt: string;
+  width?: number;
+}
+
+interface Props {
+  logos: Logo[];
+  label?: string;
+  speed?: 'slow' | 'medium' | 'fast';
+  direction?: 'left' | 'right';
+  bg?: 'default' | 'surface';
+  grayscale?: boolean;
+}
+
+const {
+  logos,
+  label,
+  speed = 'medium',
+  direction = 'left',
+  bg = 'default',
+  grayscale = true,
+} = Astro.props;
+
+const speedMap = { slow: '40s', medium: '25s', fast: '14s' };
+const duration = speedMap[speed];
+---
+
+<div
+  class:list={['logo-strip', `logo-strip--bg-${bg}`]}
+  style={`--ticker-duration: ${duration}; --ticker-direction: ${direction === 'right' ? 'reverse' : 'normal'};`}
+>
+  {label && (
+    <p class="logo-strip__label text-caption">{label}</p>
+  )}
+
+  <div class="logo-strip__track" aria-hidden="true">
+    <!-- Duplicado para loop contínuo — sem JS -->
+    <div class="logo-strip__list">
+      {logos.map(logo => (
+        <div class="logo-strip__item">
+          <img
+            src={logo.src}
+            alt={logo.alt}
+            width={logo.width ?? 120}
+            height={40}
+            loading="lazy"
+            class:list={['logo-strip__img', grayscale ? 'logo-strip__img--gray' : '']}
+          />
+        </div>
+      ))}
+    </div>
+    <!-- Duplicata para fechar o loop -->
+    <div class="logo-strip__list" aria-hidden="true">
+      {logos.map(logo => (
+        <div class="logo-strip__item">
+          <img
+            src={logo.src}
+            alt=""
+            width={logo.width ?? 120}
+            height={40}
+            loading="lazy"
+            class:list={['logo-strip__img', grayscale ? 'logo-strip__img--gray' : '']}
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .logo-strip--bg-default { background-color: var(--color-bg); }
+  .logo-strip--bg-surface { background-color: var(--color-surface); }
+
+  .logo-strip {
+    padding-block: 2rem;
+    overflow: hidden;
+    /* Fade nas bordas */
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 10%,
+      black 90%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 10%,
+      black 90%,
+      transparent 100%
+    );
+  }
+
+  .logo-strip__label {
+    text-align: center;
+    color: var(--color-text-faint);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    max-width: none;
+  }
+
+  /* ── Track — contém 2 listas para loop infinito ─────────── */
+  .logo-strip__track {
+    display: flex;
+    width: max-content;
+    animation: ticker-scroll var(--ticker-duration, 25s) linear infinite;
+    animation-direction: var(--ticker-direction, normal);
+  }
+
+  @keyframes ticker-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  .logo-strip__list {
+    display: flex;
+    align-items: center;
+    gap: clamp(2.5rem, 4vw, 4rem);
+    padding-inline: clamp(1.25rem, 2vw, 2rem);
+    flex-shrink: 0;
+  }
+
+  .logo-strip__item {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  /* ── Imagens ─────────────────────────────────────────────── */
+  .logo-strip__img {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    transition: filter var(--transition-slow), opacity var(--transition-slow);
+  }
+
+  .logo-strip__img--gray {
+    filter: grayscale(1);
+    opacity: 0.45;
+  }
+
+  .logo-strip__item:hover .logo-strip__img--gray {
+    filter: grayscale(0);
+    opacity: 1;
+  }
+
+  /* Parar animação se o usuário prefere menos movimento */
+  @media (prefers-reduced-motion: reduce) {
+    .logo-strip__track {
+      animation: none;
+      /* Mostre a primeira lista e quebre linha se necessário */
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .logo-strip__list + .logo-strip__list { display: none; }
+  }
+</style>

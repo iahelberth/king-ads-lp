@@ -1,0 +1,250 @@
+---
+/**
+ * AnimatedStats.astro — Contadores animados ativados por scroll
+ * Usa scroll-driven animations (CSS) + IntersectionObserver (JS) para contar.
+ *
+ * Props:
+ *   items   - Array de { number, prefix?, suffix?, label, description? }
+ *   variant - 'grid' | 'inline' | 'centered' (default: 'grid')
+ *   bg      - 'default' | 'surface' | 'brand' (default: 'surface')
+ *   tag     - Eyebrow text opcional
+ *   title   - Título da seção opcional
+ */
+interface StatItem {
+  number: number;
+  prefix?: string;
+  suffix?: string;
+  label: string;
+  description?: string;
+}
+
+interface Props {
+  items: StatItem[];
+  variant?: 'grid' | 'inline' | 'centered';
+  bg?: 'default' | 'surface' | 'brand';
+  tag?: string;
+  title?: string;
+}
+
+const {
+  items,
+  variant = 'grid',
+  bg = 'surface',
+  tag,
+  title,
+} = Astro.props;
+---
+
+<section
+  class:list={['section stats', `stats--${bg}`, `stats--${variant}`]}
+  id="stats"
+>
+  <div class="container">
+    {(tag || title) && (
+      <div class="section-header stats__header" data-reveal>
+        {tag && <span class="text-eyebrow">{tag}</span>}
+        {title && <h2 set:html={title} />}
+      </div>
+    )}
+
+    <div class="stats__grid">
+      {items.map((item, i) => (
+        <div
+          class="stats__item"
+          data-reveal
+          data-delay={String(i + 1)}
+        >
+          <div class="stats__number-wrap">
+            {item.prefix && (
+              <span class="stats__prefix">{item.prefix}</span>
+            )}
+            <span
+              class="stats__number"
+              data-target={item.number}
+              data-suffix={item.suffix ?? ''}
+            >
+              {item.number.toLocaleString('pt-BR')}
+            </span>
+            {item.suffix && (
+              <span class="stats__suffix">{item.suffix}</span>
+            )}
+          </div>
+          <p class="stats__label">{item.label}</p>
+          {item.description && (
+            <p class="stats__desc text-caption">{item.description}</p>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ── Backgrounds ─────────────────────────────────────────── */
+  .stats--default { background-color: var(--color-bg); }
+  .stats--surface { background-color: var(--color-surface); }
+  .stats--brand   {
+    background-color: var(--color-brand);
+    --color-text: var(--_neutral-0);
+    --color-text-muted: rgba(255,255,255,0.75);
+  }
+
+  .stats__header { margin-bottom: var(--space-content); }
+
+  /* ── Grid ────────────────────────────────────────────────── */
+  .stats--grid .stats__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+    gap: 2px;
+    background-color: var(--color-border);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+  }
+
+  .stats--inline .stats__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(2rem, 5vw, 5rem);
+    justify-content: center;
+  }
+
+  .stats--centered .stats__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(3rem, 6vw, 6rem);
+  }
+
+  /* ── Item ────────────────────────────────────────────────── */
+  .stats__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .stats--grid .stats__item {
+    background-color: var(--color-surface);
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    transition: background-color var(--transition-base);
+  }
+
+  .stats--grid .stats__item:hover {
+    background-color: var(--color-surface-raised);
+  }
+
+  .stats--inline .stats__item,
+  .stats--centered .stats__item {
+    align-items: center;
+    text-align: center;
+  }
+
+  /* ── Número ──────────────────────────────────────────────── */
+  .stats__number-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 0.125rem;
+    line-height: 1;
+  }
+
+  .stats__number {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    color: var(--color-text);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    /* Animação de entrada via scroll-driven */
+  }
+
+  @supports (animation-timeline: view()) {
+    .stats__item .stats__number {
+      animation: stat-pop both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 50%;
+    }
+    @keyframes stat-pop {
+      from { opacity: 0; transform: translateY(16px) scale(0.9); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+  }
+
+  .stats__prefix,
+  .stats__suffix {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 900;
+    color: var(--color-brand);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .stats--brand .stats__prefix,
+  .stats--brand .stats__suffix {
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* ── Label ───────────────────────────────────────────────── */
+  .stats__label {
+    font-size: var(--_text-sm);
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    max-width: none;
+  }
+
+  .stats--brand .stats__label { color: rgba(255,255,255,0.8); }
+
+  /* ── Description ─────────────────────────────────────────── */
+  .stats__desc {
+    color: var(--color-text-faint);
+    max-width: none;
+    margin-top: 0.25rem;
+  }
+
+  .stats--brand .stats__desc { color: rgba(255,255,255,0.6); }
+</style>
+
+<script>
+  // Contadores animados ativados quando elemento entra em view
+  // JS apenas para a contagem — animação CSS cuida do reveal
+  function animateCounter(
+    el: HTMLElement,
+    target: number,
+    suffix: string,
+    duration = 1600
+  ) {
+    const start = performance.now();
+    const ease = (t: number) => 1 - Math.pow(1 - t, 3);
+
+    const step = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const value = Math.round(ease(progress) * target);
+      el.textContent = value.toLocaleString('pt-BR') + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    };
+
+    requestAnimationFrame(step);
+  }
+
+  // Ativa contador quando item entra em view
+  const counters = document.querySelectorAll<HTMLElement>('.stats__number[data-target]');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          const target = parseInt(el.dataset.target ?? '0', 10);
+          const suffix = el.dataset.suffix ?? '';
+          animateCounter(el, target, suffix);
+          observer.unobserve(el);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  counters.forEach(el => observer.observe(el));
+</script>

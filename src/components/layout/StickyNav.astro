@@ -1,0 +1,363 @@
+---
+/**
+ * StickyNav.astro — Navbar sticky com scroll-driven style change
+ * CSS puro via animation-timeline: scroll() — zero JS para o efeito de scroll.
+ *
+ * Props:
+ *   logo     - Nome/HTML do logo
+ *   links    - Array de { label, href, active? }
+ *   ctaText  - Texto do botão CTA
+ *   ctaHref  - Href do CTA
+ *   theme    - 'dark' | 'light' (default: 'dark')
+ */
+interface NavLink {
+  label: string;
+  href: string;
+  active?: boolean;
+}
+
+interface Props {
+  logo: string;
+  links?: NavLink[];
+  ctaText?: string;
+  ctaHref?: string;
+  theme?: 'dark' | 'light';
+}
+
+const {
+  logo,
+  links = [],
+  ctaText,
+  ctaHref = '#',
+  theme = 'dark',
+} = Astro.props;
+---
+
+<header class:list={['snav', `snav--${theme}`]} id="snav" role="banner">
+  <div class="snav__inner container">
+    <!-- Logo -->
+    <a href="/" class="snav__logo" aria-label="Ir para home">
+      <span set:html={logo} />
+    </a>
+
+    <!-- Links desktop -->
+    {links.length > 0 && (
+      <nav class="snav__links" aria-label="Navegação principal">
+        <ul role="list">
+          {links.map(link => (
+            <li>
+              <a
+                href={link.href}
+                class:list={['snav__link', link.active ? 'snav__link--active' : '']}
+                aria-current={link.active ? 'page' : undefined}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    )}
+
+    <!-- CTA + hamburger -->
+    <div class="snav__actions">
+      {ctaText && (
+        <a href={ctaHref} class="btn btn--primary snav__cta">
+          {ctaText}
+        </a>
+      )}
+
+      <!-- Hamburger (mobile) -->
+      <button
+        class="snav__hamburger"
+        id="snav-toggle"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="snav-mobile"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="snav__mobile" id="snav-mobile" aria-hidden="true">
+    {links.map(link => (
+      <a
+        href={link.href}
+        class:list={['snav__mobile-link', link.active ? 'snav__mobile-link--active' : '']}
+      >
+        {link.label}
+      </a>
+    ))}
+    {ctaText && (
+      <a href={ctaHref} class="btn btn--primary" style="margin-top: 0.5rem; justify-content: center;">
+        {ctaText}
+      </a>
+    )}
+  </div>
+</header>
+
+<style>
+  /* ── Variáveis locais ─────────────────────────────────────── */
+  .snav--dark  { --snav-text: var(--color-text); --snav-muted: var(--color-text-muted); }
+  .snav--light { --snav-text: var(--_neutral-950); --snav-muted: var(--_neutral-600); }
+
+  /* ── Base ─────────────────────────────────────────────────── */
+  .snav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    color: var(--snav-text);
+
+    /* Scroll-driven: troca estilo quando usuário scrola 60px+
+       Usa animation-timeline: scroll(root) — progride com o scroll da página.
+       A animação vai de "estado transparente" para "estado sólido" nos primeiros 60px.
+       animation-fill-mode: both congela no estado final após 60px. */
+  }
+
+  @supports (animation-timeline: scroll()) {
+    .snav {
+      animation: snav-scroll linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0px 60px;
+    }
+  }
+
+  /* Fallback: JS adicionará a classe .snav--scrolled */
+  .snav--scrolled,
+  /* Estado "scrollado" via scroll-driven animation */
+  .snav:where(:not(.snav--initial)) {
+    /* Aplicado pelo @keyframes abaixo quando scrollado */
+  }
+
+  @keyframes snav-scroll {
+    from {
+      background-color: transparent;
+      backdrop-filter: blur(0px);
+      border-bottom: 1px solid transparent;
+      box-shadow: none;
+    }
+    to {
+      background-color: var(--nav-bg-scrolled);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--nav-border);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+    }
+  }
+
+  /* Fallback para browsers sem scroll-driven */
+  @supports not (animation-timeline: scroll()) {
+    .snav {
+      background-color: transparent;
+      transition: background-color 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
+    }
+    .snav.snav--scrolled {
+      background-color: var(--nav-bg-scrolled);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--nav-border);
+    }
+  }
+
+  /* ── Inner ────────────────────────────────────────────────── */
+  .snav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-block: clamp(0.875rem, 1.5vw, 1.25rem);
+
+    /* Padding comprime ao scrollar via scroll-driven */
+  }
+
+  @supports (animation-timeline: scroll()) {
+    .snav__inner {
+      animation: snav-padding linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0px 60px;
+    }
+    @keyframes snav-padding {
+      from { padding-block: 1.25rem; }
+      to   { padding-block: 0.75rem; }
+    }
+  }
+
+  /* ── Logo ─────────────────────────────────────────────────── */
+  .snav__logo {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    color: inherit;
+    flex-shrink: 0;
+  }
+
+  /* ── Links ────────────────────────────────────────────────── */
+  .snav__links { display: none; }
+
+  @media (min-width: 768px) {
+    .snav__links { display: block; }
+  }
+
+  .snav__links ul {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .snav__link {
+    font-size: var(--_text-xs);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--snav-muted);
+    transition: color var(--transition-base);
+    position: relative;
+  }
+
+  /* Underline animado no hover */
+  .snav__link::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--color-brand);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-base);
+  }
+
+  .snav__link:hover { color: var(--snav-text); }
+  .snav__link:hover::after { transform: scaleX(1); }
+  .snav__link--active { color: var(--snav-text); }
+  .snav__link--active::after { transform: scaleX(1); }
+
+  /* ── Actions ──────────────────────────────────────────────── */
+  .snav__actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .snav__cta { display: none; }
+  @media (min-width: 768px) { .snav__cta { display: inline-flex; } }
+
+  /* ── Hamburger ────────────────────────────────────────────── */
+  .snav__hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+  }
+
+  @media (min-width: 768px) { .snav__hamburger { display: none; } }
+
+  .snav__hamburger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: currentColor;
+    border-radius: 1px;
+    transition: transform var(--transition-base), opacity var(--transition-base);
+    transform-origin: center;
+  }
+
+  /* Estado aberto do hamburger */
+  .snav__hamburger[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+  }
+  .snav__hamburger[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .snav__hamburger[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+  }
+
+  /* ── Mobile menu ──────────────────────────────────────────── */
+  .snav__mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1rem var(--container-pad) 1.5rem;
+    background-color: var(--nav-bg-scrolled);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid var(--nav-border);
+
+    /* Escondido por padrão */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-slow);
+  }
+
+  .snav__mobile.is-open {
+    max-height: 480px;
+  }
+
+  .snav__mobile-link {
+    font-size: var(--_text-sm);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--snav-muted);
+    padding: 0.625rem 0;
+    border-bottom: 1px solid var(--color-border);
+    transition: color var(--transition-base);
+  }
+
+  .snav__mobile-link:hover,
+  .snav__mobile-link--active { color: var(--snav-text); }
+
+  @media (min-width: 768px) {
+    .snav__mobile { display: none !important; }
+  }
+</style>
+
+<script>
+  const snav = document.getElementById('snav');
+  const toggle = document.getElementById('snav-toggle');
+  const mobileMenu = document.getElementById('snav-mobile');
+
+  // Fallback scroll behavior para browsers sem scroll-driven animations
+  if (snav && !CSS.supports('animation-timeline', 'scroll()')) {
+    const handler = () => {
+      snav.classList.toggle('snav--scrolled', window.scrollY > 60);
+    };
+    window.addEventListener('scroll', handler, { passive: true });
+    handler();
+  }
+
+  // Mobile menu toggle
+  toggle?.addEventListener('click', () => {
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+    mobileMenu?.setAttribute('aria-hidden', String(isOpen));
+    mobileMenu?.classList.toggle('is-open', !isOpen);
+  });
+
+  // Fechar ao clicar em link
+  mobileMenu?.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      toggle?.setAttribute('aria-expanded', 'false');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      mobileMenu.classList.remove('is-open');
+    });
+  });
+</script>

@@ -1,0 +1,239 @@
+---
+/**
+ * GlassCard.astro — Card com glassmorphism moderno
+ * backdrop-filter aplicado com moderação — funciona sobre fundos com textura/cor.
+ *
+ * Props:
+ *   tag         - Eyebrow text (opcional)
+ *   title       - Título do card
+ *   description - Descrição (opcional)
+ *   icon        - Emoji ou texto de ícone (opcional)
+ *   href        - Se fornecido, o card inteiro é um link
+ *   cta         - Texto do link no rodapé do card (opcional)
+ *   variant     - 'default' | 'featured' | 'minimal' (default: 'default')
+ *   glow        - true = adiciona glow colorido ao hover (default: false)
+ */
+interface Props {
+  tag?: string;
+  title: string;
+  description?: string;
+  icon?: string;
+  href?: string;
+  cta?: string;
+  variant?: 'default' | 'featured' | 'minimal';
+  glow?: boolean;
+  class?: string;
+}
+
+const {
+  tag,
+  title,
+  description,
+  icon,
+  href,
+  cta,
+  variant = 'default',
+  glow = false,
+  class: className,
+} = Astro.props;
+
+const Tag = href ? 'a' : 'div';
+---
+
+<Tag
+  class:list={[
+    'gcard',
+    `gcard--${variant}`,
+    glow ? 'gcard--glow' : '',
+    className,
+  ]}
+  href={href}
+  data-reveal="scale"
+>
+  <!-- Brilho interno no hover (glassmorphism shine) -->
+  <div class="gcard__shine" aria-hidden="true"></div>
+
+  <!-- Conteúdo -->
+  <div class="gcard__body">
+    {icon && (
+      <div class="gcard__icon" aria-hidden="true">{icon}</div>
+    )}
+
+    <div class="gcard__text">
+      {tag && <span class="text-eyebrow gcard__tag">{tag}</span>}
+      <h3 class="gcard__title">{title}</h3>
+      {description && (
+        <p class="gcard__desc">{description}</p>
+      )}
+    </div>
+
+    {cta && href && (
+      <div class="gcard__cta">
+        <span>{cta}</span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    )}
+  </div>
+</Tag>
+
+<style>
+  /* ── Base ─────────────────────────────────────────────────── */
+  .gcard {
+    position: relative;
+    padding: clamp(1.5rem, 3vw, 2rem);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition:
+      transform var(--transition-base),
+      box-shadow var(--transition-base);
+    cursor: default;
+    display: block;
+
+    /* Container query: adapta layout ao tamanho disponível */
+    container-type: inline-size;
+    container-name: gcard;
+  }
+
+  /* Links são interativos */
+  a.gcard { cursor: pointer; }
+
+  /* ── Glassmorphism ─────────────────────────────────────────── */
+  .gcard--default {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+
+  .gcard--featured {
+    background: color-mix(in srgb, var(--color-brand) 10%, var(--glass-bg));
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--color-border-brand);
+    box-shadow: var(--glass-shadow), 0 0 40px -10px color-mix(in srgb, var(--color-brand) 25%, transparent);
+  }
+
+  .gcard--minimal {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--card-shadow);
+  }
+
+  /* ── Hover ─────────────────────────────────────────────────── */
+  a.gcard:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--glass-shadow), 0 20px 40px -12px rgba(0,0,0,0.3);
+  }
+
+  a.gcard--glow:hover {
+    box-shadow:
+      var(--glass-shadow),
+      0 0 40px -8px color-mix(in srgb, var(--color-brand) 35%, transparent),
+      0 20px 40px -12px rgba(0,0,0,0.3);
+  }
+
+  /* ── Shine (reflexo de luz no hover) ─────────────────────── */
+  .gcard__shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.06),
+      transparent
+    );
+    transition: left 0.6s var(--_ease-smooth);
+    pointer-events: none;
+  }
+
+  a.gcard:hover .gcard__shine {
+    left: 150%;
+  }
+
+  /* ── Body ──────────────────────────────────────────────────── */
+  .gcard__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+  }
+
+  /* Layout horizontal em cards largos */
+  @container gcard (min-width: 380px) {
+    .gcard__body:has(.gcard__icon) {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 1.25rem;
+    }
+
+    .gcard__body:has(.gcard__icon) .gcard__icon {
+      flex-shrink: 0;
+    }
+  }
+
+  /* ── Ícone ─────────────────────────────────────────────────── */
+  .gcard__icon {
+    font-size: 2rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    background: color-mix(in srgb, var(--color-brand) 12%, transparent);
+    border: 1px solid var(--color-border-brand);
+    border-radius: var(--_radius-md);
+    flex-shrink: 0;
+  }
+
+  .gcard--featured .gcard__icon {
+    background: color-mix(in srgb, var(--color-brand) 20%, transparent);
+  }
+
+  /* ── Texto ─────────────────────────────────────────────────── */
+  .gcard__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    flex: 1;
+  }
+
+  .gcard__tag { display: block; }
+
+  .gcard__title {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 700;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+  }
+
+  .gcard__desc {
+    font-size: var(--_text-sm);
+    color: var(--color-text-muted);
+    line-height: 1.65;
+    max-width: none;
+  }
+
+  /* ── CTA ───────────────────────────────────────────────────── */
+  .gcard__cta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--_text-sm);
+    font-weight: 600;
+    color: var(--color-brand);
+    margin-top: auto;
+    transition: gap var(--transition-base);
+  }
+
+  a.gcard:hover .gcard__cta { gap: 0.75rem; }
+</style>

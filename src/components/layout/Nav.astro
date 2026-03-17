@@ -1,0 +1,129 @@
+---
+/**
+ * Nav.astro — Navbar responsiva com scroll behavior
+ * Props:
+ *   logo     - Nome do logo (texto simples ou HTML)
+ *   links    - Array de { label, href }
+ *   ctaText  - Texto do botão CTA (se omitido, não exibe botão)
+ *   ctaHref  - Href do CTA
+ *   theme    - 'dark' | 'light' (default: dark)
+ */
+interface Props {
+  logo: string;
+  links?: { label: string; href: string }[];
+  ctaText?: string;
+  ctaHref?: string;
+  theme?: 'dark' | 'light';
+}
+
+const {
+  logo,
+  links = [],
+  ctaText,
+  ctaHref = '#',
+  theme = 'dark',
+} = Astro.props;
+
+const isDark = theme === 'dark';
+---
+
+<nav
+  id="navbar"
+  class:list={[
+    'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+    isDark ? 'text-white' : 'text-gray-900'
+  ]}
+>
+  <div class="max-w-6xl mx-auto px-8 flex items-center justify-between py-5" id="nav-inner">
+    <!-- Logo -->
+    <a href="/" class="font-display text-lg font-black tracking-tight no-underline" style="color:inherit;">
+      {logo}
+    </a>
+
+    <!-- Links desktop -->
+    {links.length > 0 && (
+      <ul class="hidden md:flex gap-9 list-none m-0 p-0">
+        {links.map(link => (
+          <li>
+            <a
+              href={link.href}
+              class="text-[13px] font-medium tracking-widest uppercase no-underline transition-colors duration-200"
+              style={isDark ? 'color: #9a9a9a;' : 'color: #666;'}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+
+    <!-- CTA button -->
+    {ctaText && (
+      <a
+        href={ctaHref}
+        class="hidden md:inline-block bg-[var(--color-primary)] text-white px-6 py-2.5 rounded-sm text-[13px] font-bold tracking-widest uppercase no-underline transition-all duration-200 hover:brightness-90"
+      >
+        {ctaText}
+      </a>
+    )}
+
+    <!-- Mobile hamburger -->
+    <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Menu">
+      <span class="block w-6 h-0.5 bg-current transition-all"></span>
+      <span class="block w-6 h-0.5 bg-current transition-all"></span>
+      <span class="block w-6 h-0.5 bg-current transition-all"></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class:list={[
+      'hidden md:hidden px-8 pb-6 flex-col gap-4',
+      isDark ? 'bg-black/95 backdrop-blur-lg' : 'bg-white/95 backdrop-blur-lg'
+    ]}
+  >
+    {links.map(link => (
+      <a href={link.href} class="text-sm font-medium uppercase tracking-widest py-2 border-b border-white/10 no-underline" style="color:inherit;">
+        {link.label}
+      </a>
+    ))}
+    {ctaText && (
+      <a href={ctaHref} class="bg-[var(--color-primary)] text-white text-center px-6 py-3 rounded-sm text-sm font-bold tracking-widest uppercase no-underline mt-2">
+        {ctaText}
+      </a>
+    )}
+  </div>
+</nav>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  const navInner = document.getElementById('nav-inner');
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  // Scroll behavior
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      navbar?.classList.add('bg-black/92', 'backdrop-blur-xl', 'border-b', 'border-white/5');
+      navInner?.classList.replace('py-5', 'py-3');
+    } else {
+      navbar?.classList.remove('bg-black/92', 'backdrop-blur-xl', 'border-b', 'border-white/5');
+      navInner?.classList.replace('py-3', 'py-5');
+    }
+  });
+
+  // Mobile menu toggle
+  menuToggle?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+    mobileMenu?.classList.toggle('flex');
+  });
+
+  // Fechar menu ao clicar em link
+  mobileMenu?.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('flex');
+    });
+  });
+</script>

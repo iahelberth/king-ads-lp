@@ -1,0 +1,2889 @@
+{
+  "content": [
+    {
+      "id": "hero01sec",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#100f0f",
+        "padding": {
+          "unit": "px",
+          "top": "260",
+          "right": "0",
+          "bottom": "180",
+          "left": "0",
+          "isLinked": false
+        },
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        },
+        "background_image": {
+          "id": 1830,
+          "url": "https://barcelonapubcrawlbyking.com/wp-content/uploads/2024/03/BackGround-Website-2-768x360.jpg",
+          "alt": "Barcelona Party Tour by KING",
+          "source": "library",
+          "size": ""
+        },
+        "background_size": "cover",
+        "background_position": "center center",
+        "background_overlay_background": "classic",
+        "background_overlay_color": "#100f0f",
+        "background_overlay_opacity": {
+          "unit": "px",
+          "size": 0.6,
+          "sizes": []
+        }
+      },
+      "elements": [
+        {
+          "id": "hero01col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "content_position": "middle",
+            "text_align": "center"
+          },
+          "elements": [
+            {
+              "id": "hero_badge",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"display:inline-block; background:rgba(230,198,0,0.12); border:1px solid rgba(230,198,0,0.30); color:#e6c600; font-family:Poppins,sans-serif; font-size:12px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; padding:8px 20px; border-radius:50px; margin-bottom:24px;\">⭐ 4.9/5 · 696+ Reviews — Barcelona's Most Loved Party Tour</div>"
+              }
+            },
+            {
+              "id": "hero_h1a",
+              "elType": "widget",
+              "widgetType": "heading",
+              "elements": [],
+              "settings": {
+                "title": "You arrived alone.",
+                "header_size": "h1",
+                "align": "center",
+                "title_color": "#ffffff",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 72,
+                  "sizes": []
+                },
+                "typography_font_weight": "800",
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": -1,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.1,
+                  "sizes": []
+                },
+                "text_shadow_text_shadow_type": "yes",
+                "text_shadow_text_shadow": {
+                  "horizontal": 0,
+                  "vertical": 0,
+                  "blur": 30,
+                  "color": "rgba(230,198,0,0.3)"
+                }
+              }
+            },
+            {
+              "id": "hero_h1b",
+              "elType": "widget",
+              "widgetType": "heading",
+              "elements": [],
+              "settings": {
+                "title": "You won't leave",
+                "header_size": "h1",
+                "align": "center",
+                "title_color": "#ffffff",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 72,
+                  "sizes": []
+                },
+                "typography_font_weight": "800",
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": -1,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.1,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "hero_h1c",
+              "elType": "widget",
+              "widgetType": "heading",
+              "elements": [],
+              "settings": {
+                "title": "<span style=\"color:#e6c600\">that way.</span>",
+                "header_size": "h1",
+                "align": "center",
+                "title_color": "#ffffff",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 72,
+                  "sizes": []
+                },
+                "typography_font_weight": "800",
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": -1,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.1,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "hero_sp1",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "elements": [],
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 16,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "hero_sub",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "elements": [],
+              "settings": {
+                "editor": "4.9 stars · 700+ reviews · Open bar · VIP club entry · From €14.99<br>Every Friday · Rain or Shine · Meet at Las Ramblas 130, 21:00",
+                "align": "center",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 17,
+                  "sizes": []
+                },
+                "typography_font_weight": "400",
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.7,
+                  "sizes": []
+                },
+                "text_color": "rgba(255,255,255,0.60)"
+              }
+            },
+            {
+              "id": "hero_sp2",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "elements": [],
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 32,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "hero_btns",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"display:flex; gap:16px; justify-content:center; flex-wrap:wrap;\">\n  <a href=\"#bookNowButton\" style=\"display:inline-block; background:#e6c600; color:#100f0f; font-family:Poppins,sans-serif; font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:16px 40px; border-radius:4px; text-decoration:none; transition:background 220ms ease;\">Join Tonight's Tour →</a>\n  <a href=\"#features\" style=\"display:inline-block; background:transparent; color:#ffffff; font-family:Poppins,sans-serif; font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:16px 40px; border-radius:4px; text-decoration:none; border:1px solid rgba(255,255,255,0.25);\">See What's Included</a>\n</div>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trust02sec",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#1a1a1a",
+        "padding": {
+          "unit": "px",
+          "top": "20",
+          "right": "0",
+          "bottom": "20",
+          "left": "0",
+          "isLinked": false
+        },
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        },
+        "border_border": "solid",
+        "border_width": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "1",
+          "left": "0",
+          "isLinked": false
+        },
+        "border_color": "rgba(255,255,255,0.08)"
+      },
+      "elements": [
+        {
+          "id": "trust02col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "content_position": "middle"
+          },
+          "elements": [
+            {
+              "id": "trust02w",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"display:flex; align-items:center; justify-content:center; gap:40px; flex-wrap:wrap; font-family:Poppins,sans-serif;\">\n  <div style=\"display:flex; align-items:center; gap:8px;\">\n    <span style=\"color:#e6c600; font-size:13px;\">★★★★★</span>\n    <span style=\"color:rgba(255,255,255,0.60); font-size:13px;\">4.9 on <strong style=\"color:#ffffff;\">TripAdvisor</strong></span>\n  </div>\n  <span style=\"color:rgba(255,255,255,0.08); font-size:20px;\">|</span>\n  <div style=\"display:flex; align-items:center; gap:8px;\">\n    <span style=\"color:#e6c600; font-size:13px;\">★★★★★</span>\n    <span style=\"color:rgba(255,255,255,0.60); font-size:13px;\">4.9 on <strong style=\"color:#ffffff;\">GetYourGuide</strong></span>\n  </div>\n  <span style=\"color:rgba(255,255,255,0.08); font-size:20px;\">|</span>\n  <div style=\"display:flex; align-items:center; gap:8px;\">\n    <span style=\"font-size:16px;\">🏆</span>\n    <span style=\"color:rgba(255,255,255,0.60); font-size:13px;\"><strong style=\"color:#ffffff;\">5+ Years</strong> Running</span>\n  </div>\n  <span style=\"color:rgba(255,255,255,0.08); font-size:20px;\">|</span>\n  <div style=\"display:flex; align-items:center; gap:8px;\">\n    <span style=\"font-size:16px;\">🌍</span>\n    <span style=\"color:rgba(255,255,255,0.60); font-size:13px;\"><strong style=\"color:#ffffff;\">10,000+</strong> Partygoers</span>\n  </div>\n</div>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ticker03sec",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#e6c600",
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        },
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "ticker03col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "content_position": "middle"
+          },
+          "elements": [
+            {
+              "id": "ticker03w",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"background:#e6c600; overflow:hidden; padding:15px 0; white-space:nowrap;\">\n  <style>@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}\n  .king-ticker{display:inline-block; animation:ticker 42s linear infinite; white-space:nowrap;}\n  </style>\n  <span class=\"king-ticker\" style=\"font-family:Poppins,sans-serif; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#100f0f; padding:0 16px;\">⭐⭐⭐⭐⭐ 4.9/5 &nbsp;·&nbsp; 696+ Reviews &nbsp;·&nbsp; Best Party Tour in Barcelona &nbsp;·&nbsp; Every Friday Night &nbsp;·&nbsp; From €14.99 &nbsp;·&nbsp; Buy Once · Come Back Free &nbsp;·&nbsp; 4 Bars + 1 VIP Club &nbsp;·&nbsp; Rain or Shine &nbsp;·&nbsp; 10,000+ Happy Partygoers &nbsp;·&nbsp; ⭐⭐⭐⭐⭐ 4.9/5 &nbsp;·&nbsp; 696+ Reviews &nbsp;·&nbsp; Best Party Tour in Barcelona &nbsp;·&nbsp; Every Friday Night &nbsp;·&nbsp; From €14.99 &nbsp;·&nbsp; Buy Once · Come Back Free &nbsp;·&nbsp; 4 Bars + 1 VIP Club &nbsp;·&nbsp; Rain or Shine &nbsp;·&nbsp; 10,000+ Happy Partygoers</span>\n</div>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "split04sec",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#100f0f",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "0",
+          "bottom": "80",
+          "left": "0",
+          "isLinked": false
+        },
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "split04colL",
+          "elType": "column",
+          "settings": {
+            "_column_size": 50,
+            "content_position": "middle"
+          },
+          "elements": [
+            {
+              "id": "split04eye",
+              "elType": "widget",
+              "widgetType": "heading",
+              "elements": [],
+              "settings": {
+                "title": "The Experience",
+                "header_size": "p",
+                "align": "center",
+                "title_color": "#e6c600",
+                "text_transform": "uppercase",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 12,
+                  "sizes": []
+                },
+                "typography_font_weight": "700",
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": 2,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "split04sp1",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "elements": [],
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 12,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "split04h2",
+              "elType": "widget",
+              "widgetType": "heading",
+              "elements": [],
+              "settings": {
+                "title": "Not just a night out.<br>The best night of your trip.",
+                "header_size": "h2",
+                "align": "left",
+                "title_color": "#ffffff",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 40,
+                  "sizes": []
+                },
+                "typography_font_weight": "800",
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": -1,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.1,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "split04sp2",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "elements": [],
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 20,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "split04body",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "elements": [],
+              "settings": {
+                "editor": "A party tour is the fastest way to go from stranger to best friend in a city you don't know yet. This isn't about how much you drink. It's about who you meet. Many people join completely sober and have the best night of their trip.",
+                "align": "left",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 16,
+                  "sizes": []
+                },
+                "typography_font_weight": "400",
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.7,
+                  "sizes": []
+                },
+                "text_color": "rgba(255,255,255,0.60)"
+              }
+            },
+            {
+              "id": "split04sp3",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "elements": [],
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 24,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "split04bul",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<ul style=\"list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:14px;\">\n  <li style=\"display:flex; align-items:flex-start; gap:12px; font-family:Poppins,sans-serif; font-size:15px; color:rgba(255,255,255,0.60); line-height:1.6;\">\n    <span style=\"color:#e6c600; font-size:18px; margin-top:1px; flex-shrink:0;\">🎁</span>\n    <span>Exclusive surprises at every stop — the best icebreaker in Barcelona</span>\n  </li>\n  <li style=\"display:flex; align-items:flex-start; gap:12px; font-family:Poppins,sans-serif; font-size:15px; color:rgba(255,255,255,0.60); line-height:1.6;\">\n    <span style=\"color:#e6c600; font-size:18px; margin-top:1px; flex-shrink:0;\">🎉</span>\n    <span>VIP entry to Barcelona's best club — no queue, your name's already on the list</span>\n  </li>\n  <li style=\"display:flex; align-items:flex-start; gap:12px; font-family:Poppins,sans-serif; font-size:15px; color:rgba(255,255,255,0.60); line-height:1.6;\">\n    <span style=\"color:#e6c600; font-size:18px; margin-top:1px; flex-shrink:0;\">📍</span>\n    <span>4 handpicked bars you'd never find on your own (tourists miss all of these)</span>\n  </li>\n  <li style=\"display:flex; align-items:flex-start; gap:12px; font-family:Poppins,sans-serif; font-size:15px; color:rgba(255,255,255,0.60); line-height:1.6;\">\n    <span style=\"color:#e6c600; font-size:18px; margin-top:1px; flex-shrink:0;\">🌍</span>\n    <span>A crew from 20+ countries — by bar 2, you'll feel like you've known them for years</span>\n  </li>\n  <li style=\"display:flex; align-items:flex-start; gap:12px; font-family:Poppins,sans-serif; font-size:15px; color:rgba(255,255,255,0.60); line-height:1.6;\">\n    <span style=\"color:#e6c600; font-size:18px; margin-top:1px; flex-shrink:0;\">🔁</span>\n    <span>Buy once · come back free — no expiry, no catch</span>\n  </li>\n</ul>"
+              }
+            },
+            {
+              "id": "split04sp4",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "elements": [],
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 32,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "split04btn",
+              "elType": "widget",
+              "widgetType": "button",
+              "elements": [],
+              "settings": {
+                "text": "Grab My Spot — From €14.99",
+                "align": "left",
+                "link": {
+                  "url": "#bookNowButton",
+                  "is_external": false,
+                  "nofollow": false
+                },
+                "background_color": "#e6c600",
+                "button_text_color": "#100f0f",
+                "hover_background_color": "#f5d700",
+                "border_radius": {
+                  "unit": "px",
+                  "size": 4,
+                  "sizes": []
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "14",
+                  "right": "36",
+                  "bottom": "14",
+                  "left": "36",
+                  "isLinked": false
+                },
+                "button_type": "default",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 11,
+                  "sizes": []
+                },
+                "typography_font_weight": "700",
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": 2,
+                  "sizes": []
+                },
+                "typography_text_transform": "uppercase"
+              }
+            }
+          ]
+        },
+        {
+          "id": "split04colR",
+          "elType": "column",
+          "settings": {
+            "_column_size": 50,
+            "content_position": "middle"
+          },
+          "elements": [
+            {
+              "id": "split04img",
+              "elType": "widget",
+              "widgetType": "image",
+              "elements": [],
+              "settings": {
+                "image": {
+                  "url": "https://barcelonapubcrawlbyking.com/wp-content/uploads/2024/02/Barcelona-Pub-Crawl-82.jpg",
+                  "alt": "Group of friends on Barcelona Party Tour by KING",
+                  "id": "",
+                  "source": "external"
+                },
+                "image_size": "full",
+                "align": "center",
+                "width": {
+                  "unit": "%",
+                  "size": 100,
+                  "sizes": []
+                },
+                "border_radius": {
+                  "unit": "px",
+                  "top": "8",
+                  "right": "8",
+                  "bottom": "8",
+                  "left": "8",
+                  "isLinked": true
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "feat05hdr",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#1a1a1a",
+        "padding": {
+          "unit": "px",
+          "top": "64",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        },
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "feat05col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "content_position": "middle"
+          },
+          "elements": [
+            {
+              "id": "feat05eye",
+              "elType": "widget",
+              "widgetType": "heading",
+              "elements": [],
+              "settings": {
+                "title": "Everything Included",
+                "header_size": "p",
+                "align": "center",
+                "title_color": "#e6c600",
+                "text_transform": "uppercase",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 12,
+                  "sizes": []
+                },
+                "typography_font_weight": "700",
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": 2,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "feat05sp1",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "elements": [],
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 12,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "feat05h2",
+              "elType": "widget",
+              "widgetType": "heading",
+              "elements": [],
+              "settings": {
+                "title": "One ticket. A full night.",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#ffffff",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 40,
+                  "sizes": []
+                },
+                "typography_font_weight": "800",
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": -1,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.1,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "feat05sp2",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "elements": [],
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 12,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "feat05sub",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "elements": [],
+              "settings": {
+                "editor": "No surprises at the door. No hidden costs. Everything below is included from the moment you show up.",
+                "align": "center",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 16,
+                  "sizes": []
+                },
+                "typography_font_weight": "400",
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.7,
+                  "sizes": []
+                },
+                "text_color": "rgba(255,255,255,0.60)"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "feat05r1",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#1a1a1a",
+        "padding": {
+          "unit": "px",
+          "top": "24",
+          "right": "24",
+          "bottom": "0",
+          "left": "24",
+          "isLinked": false
+        },
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "5d036c45",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "c54cde21",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"background:#1a1a1a; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:28px; height:100%; font-family:Poppins,sans-serif; transition:border-color 220ms ease;\">\n  <div style=\"font-size:32px; margin-bottom:16px; line-height:1;\">🍺</div>\n  <h3 style=\"font-size:16px; font-weight:700; color:#ffffff; margin:0 0 10px 0; line-height:1.3;\">Open Bar (2 Hours)</h3>\n  <p style=\"font-size:14px; color:rgba(255,255,255,0.60); margin:0; line-height:1.7;\">Drinks on us for the first two hours. Beer, wine, spirits — whatever you're in the mood for.</p>\n</div>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "36a1350f",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "25906891",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"background:#1a1a1a; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:28px; height:100%; font-family:Poppins,sans-serif; transition:border-color 220ms ease;\">\n  <div style=\"font-size:32px; margin-bottom:16px; line-height:1;\">🎁</div>\n  <h3 style=\"font-size:16px; font-weight:700; color:#ffffff; margin:0 0 10px 0; line-height:1.3;\">Exclusive Surprises</h3>\n  <p style=\"font-size:14px; color:rgba(255,255,255,0.60); margin:0; line-height:1.7;\">We kick off every stop with something special. The best icebreaker in Barcelona — you'll see.</p>\n</div>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "c37c3db3",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "97af0738",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"background:#1a1a1a; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:28px; height:100%; font-family:Poppins,sans-serif; transition:border-color 220ms ease;\">\n  <div style=\"font-size:32px; margin-bottom:16px; line-height:1;\">🎉</div>\n  <h3 style=\"font-size:16px; font-weight:700; color:#ffffff; margin:0 0 10px 0; line-height:1.3;\">VIP Club Entry</h3>\n  <p style=\"font-size:14px; color:rgba(255,255,255,0.60); margin:0; line-height:1.7;\">Skip the queue and walk straight into Barcelona's hottest club. No guest list drama.</p>\n</div>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "feat05r2",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#1a1a1a",
+        "padding": {
+          "unit": "px",
+          "top": "24",
+          "right": "24",
+          "bottom": "64",
+          "left": "24",
+          "isLinked": false
+        },
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "71c99642",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "8a74f981",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"background:#1a1a1a; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:28px; height:100%; font-family:Poppins,sans-serif; transition:border-color 220ms ease;\">\n  <div style=\"font-size:32px; margin-bottom:16px; line-height:1;\">🚪</div>\n  <h3 style=\"font-size:16px; font-weight:700; color:#ffffff; margin:0 0 10px 0; line-height:1.3;\">Skip Every Line</h3>\n  <p style=\"font-size:14px; color:rgba(255,255,255,0.60); margin:0; line-height:1.7;\">Your guide handles everything. No waiting, no stress — just walk in like you own the place.</p>\n</div>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "0eeee98c",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "057c3126",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"background:#1a1a1a; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:28px; height:100%; font-family:Poppins,sans-serif; transition:border-color 220ms ease;\">\n  <div style=\"font-size:32px; margin-bottom:16px; line-height:1;\">🧭</div>\n  <h3 style=\"font-size:16px; font-weight:700; color:#ffffff; margin:0 0 10px 0; line-height:1.3;\">Local Expert Guide</h3>\n  <p style=\"font-size:14px; color:rgba(255,255,255,0.60); margin:0; line-height:1.7;\">Not a tour robot — a real person who knows every secret spot, shortcut, and bartender in the city.</p>\n</div>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "2cc796cf",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "a638760b",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"background:#1a1a1a; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:28px; height:100%; font-family:Poppins,sans-serif; transition:border-color 220ms ease;\">\n  <div style=\"font-size:32px; margin-bottom:16px; line-height:1;\">🌍</div>\n  <h3 style=\"font-size:16px; font-weight:700; color:#ffffff; margin:0 0 10px 0; line-height:1.3;\">New Friends Guaranteed</h3>\n  <p style=\"font-size:14px; color:rgba(255,255,255,0.60); margin:0; line-height:1.7;\">Joined by solo travelers, groups, and Erasmus students from 50+ countries. You will not be bored.</p>\n</div>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "icta06sec",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#1a1a1a",
+        "padding": {
+          "unit": "px",
+          "top": "20",
+          "right": "0",
+          "bottom": "20",
+          "left": "0",
+          "isLinked": false
+        },
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        },
+        "border_border": "solid",
+        "border_width": {
+          "unit": "px",
+          "top": "1",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        },
+        "border_color": "rgba(255,255,255,0.08)"
+      },
+      "elements": [
+        {
+          "id": "icta06col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "content_position": "middle"
+          },
+          "elements": [
+            {
+              "id": "icta06w",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px; font-family:Poppins,sans-serif; padding:0 24px;\">\n  <p style=\"margin:0; font-size:16px; color:rgba(255,255,255,0.60);\">\n    <strong style=\"color:#e6c600; font-size:20px;\">€14.99</strong> · Less than one cocktail at a Barcelona club — and you get the whole night.\n  </p>\n  <a href=\"#bookNowButton\" style=\"display:inline-block; background:#e6c600; color:#100f0f; font-family:Poppins,sans-serif; font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:14px 32px; border-radius:4px; text-decoration:none; white-space:nowrap;\">Reserve My Spot →</a>\n</div>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stats07sec",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#100f0f",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "0",
+          "bottom": "80",
+          "left": "0",
+          "isLinked": false
+        },
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "ba497fdd",
+          "elType": "column",
+          "settings": {
+            "_column_size": 25
+          },
+          "elements": [
+            {
+              "id": "c85b30fe",
+              "elType": "widget",
+              "widgetType": "counter",
+              "elements": [],
+              "settings": {
+                "starting_number": 0,
+                "ending_number": 696,
+                "suffix": "+",
+                "title": "Reviews",
+                "number_color": "#e6c600",
+                "title_color": "#ffffff",
+                "number_typography_typography": "custom",
+                "number_typography_font_family": "Poppins",
+                "number_typography_font_size": {
+                  "unit": "px",
+                  "size": 56,
+                  "sizes": []
+                },
+                "number_typography_font_weight": "800",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Poppins",
+                "title_typography_font_size": {
+                  "unit": "px",
+                  "size": 14,
+                  "sizes": []
+                },
+                "title_typography_font_weight": "600",
+                "title_typography_letter_spacing": {
+                  "unit": "px",
+                  "size": 2,
+                  "sizes": []
+                },
+                "title_typography_text_transform": "uppercase",
+                "align": "center"
+              }
+            }
+          ]
+        },
+        {
+          "id": "a693ea2b",
+          "elType": "column",
+          "settings": {
+            "_column_size": 25
+          },
+          "elements": [
+            {
+              "id": "f0dbe977",
+              "elType": "widget",
+              "widgetType": "counter",
+              "elements": [],
+              "settings": {
+                "starting_number": 0,
+                "ending_number": 49,
+                "suffix": "/5",
+                "title": "Star Rating",
+                "number_color": "#e6c600",
+                "title_color": "#ffffff",
+                "number_typography_typography": "custom",
+                "number_typography_font_family": "Poppins",
+                "number_typography_font_size": {
+                  "unit": "px",
+                  "size": 56,
+                  "sizes": []
+                },
+                "number_typography_font_weight": "800",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Poppins",
+                "title_typography_font_size": {
+                  "unit": "px",
+                  "size": 14,
+                  "sizes": []
+                },
+                "title_typography_font_weight": "600",
+                "title_typography_letter_spacing": {
+                  "unit": "px",
+                  "size": 2,
+                  "sizes": []
+                },
+                "title_typography_text_transform": "uppercase",
+                "align": "center"
+              }
+            }
+          ]
+        },
+        {
+          "id": "161969a1",
+          "elType": "column",
+          "settings": {
+            "_column_size": 25
+          },
+          "elements": [
+            {
+              "id": "a2183277",
+              "elType": "widget",
+              "widgetType": "counter",
+              "elements": [],
+              "settings": {
+                "starting_number": 0,
+                "ending_number": 10000,
+                "suffix": "+",
+                "title": "Partygoers",
+                "number_color": "#e6c600",
+                "title_color": "#ffffff",
+                "number_typography_typography": "custom",
+                "number_typography_font_family": "Poppins",
+                "number_typography_font_size": {
+                  "unit": "px",
+                  "size": 56,
+                  "sizes": []
+                },
+                "number_typography_font_weight": "800",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Poppins",
+                "title_typography_font_size": {
+                  "unit": "px",
+                  "size": 14,
+                  "sizes": []
+                },
+                "title_typography_font_weight": "600",
+                "title_typography_letter_spacing": {
+                  "unit": "px",
+                  "size": 2,
+                  "sizes": []
+                },
+                "title_typography_text_transform": "uppercase",
+                "align": "center"
+              }
+            }
+          ]
+        },
+        {
+          "id": "af04a151",
+          "elType": "column",
+          "settings": {
+            "_column_size": 25
+          },
+          "elements": [
+            {
+              "id": "bc56c630",
+              "elType": "widget",
+              "widgetType": "counter",
+              "elements": [],
+              "settings": {
+                "starting_number": 0,
+                "ending_number": 5,
+                "suffix": "+",
+                "title": "Years Running",
+                "number_color": "#e6c600",
+                "title_color": "#ffffff",
+                "number_typography_typography": "custom",
+                "number_typography_font_family": "Poppins",
+                "number_typography_font_size": {
+                  "unit": "px",
+                  "size": 56,
+                  "sizes": []
+                },
+                "number_typography_font_weight": "800",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Poppins",
+                "title_typography_font_size": {
+                  "unit": "px",
+                  "size": 14,
+                  "sizes": []
+                },
+                "title_typography_font_weight": "600",
+                "title_typography_letter_spacing": {
+                  "unit": "px",
+                  "size": 2,
+                  "sizes": []
+                },
+                "title_typography_text_transform": "uppercase",
+                "align": "center"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tl08hdr",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#1a1a1a",
+        "padding": {
+          "unit": "px",
+          "top": "64",
+          "right": "0",
+          "bottom": "32",
+          "left": "0",
+          "isLinked": false
+        },
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "tl08col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "content_position": "middle"
+          },
+          "elements": [
+            {
+              "id": "tl08eye",
+              "elType": "widget",
+              "widgetType": "heading",
+              "elements": [],
+              "settings": {
+                "title": "How It Works",
+                "header_size": "p",
+                "align": "center",
+                "title_color": "#e6c600",
+                "text_transform": "uppercase",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 12,
+                  "sizes": []
+                },
+                "typography_font_weight": "700",
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": 2,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "tl08sp1",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "elements": [],
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 12,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "tl08h2",
+              "elType": "widget",
+              "widgetType": "heading",
+              "elements": [],
+              "settings": {
+                "title": "4 steps to the best night of your trip",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#ffffff",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 40,
+                  "sizes": []
+                },
+                "typography_font_weight": "800",
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": -1,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.1,
+                  "sizes": []
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tl08stp",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#1a1a1a",
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "24",
+          "bottom": "80",
+          "left": "24",
+          "isLinked": false
+        },
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "95b02b41",
+          "elType": "column",
+          "settings": {
+            "_column_size": 25
+          },
+          "elements": [
+            {
+              "id": "39c1205a",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"font-family:Poppins,sans-serif; padding:32px; background:#100f0f; border:1px solid rgba(255,255,255,0.08); border-radius:8px; height:100%;\">\n  <div style=\"font-size:40px; font-weight:800; color:#e6c600; opacity:0.4; line-height:1; margin-bottom:12px;\">01</div>\n  <h3 style=\"font-size:18px; font-weight:700; color:#ffffff; margin:0 0 12px 0; line-height:1.3;\">Book in 2 Minutes</h3>\n  <p style=\"font-size:14px; color:rgba(255,255,255,0.60); margin:0; line-height:1.7;\">Pick your date, grab your ticket online. No hidden fees, no complicated forms. Done.</p>\n</div>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "3195121d",
+          "elType": "column",
+          "settings": {
+            "_column_size": 25
+          },
+          "elements": [
+            {
+              "id": "625c71af",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"font-family:Poppins,sans-serif; padding:32px; background:#100f0f; border:1px solid rgba(255,255,255,0.08); border-radius:8px; height:100%;\">\n  <div style=\"font-size:40px; font-weight:800; color:#e6c600; opacity:0.4; line-height:1; margin-bottom:12px;\">02</div>\n  <h3 style=\"font-size:18px; font-weight:700; color:#ffffff; margin:0 0 12px 0; line-height:1.3;\">Meet at Las Ramblas 130</h3>\n  <p style=\"font-size:14px; color:rgba(255,255,255,0.60); margin:0; line-height:1.7;\">Show up at 21:00. Look for the KING sign. You'll already be making friends before the first bar.</p>\n</div>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "887b40b5",
+          "elType": "column",
+          "settings": {
+            "_column_size": 25
+          },
+          "elements": [
+            {
+              "id": "3192fcf3",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"font-family:Poppins,sans-serif; padding:32px; background:#100f0f; border:1px solid rgba(255,255,255,0.08); border-radius:8px; height:100%;\">\n  <div style=\"font-size:40px; font-weight:800; color:#e6c600; opacity:0.4; line-height:1; margin-bottom:12px;\">03</div>\n  <h3 style=\"font-size:18px; font-weight:700; color:#ffffff; margin:0 0 12px 0; line-height:1.3;\">Hit 4 Epic Bars</h3>\n  <p style=\"font-size:14px; color:rgba(255,255,255,0.60); margin:0; line-height:1.7;\">Your guide leads the crew through Barcelona's best bars. Open bar, exclusive surprises, new friends — all included.</p>\n</div>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "478b8b4a",
+          "elType": "column",
+          "settings": {
+            "_column_size": 25
+          },
+          "elements": [
+            {
+              "id": "a2115ed9",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"font-family:Poppins,sans-serif; padding:32px; background:#100f0f; border:1px solid rgba(255,255,255,0.08); border-radius:8px; height:100%;\">\n  <div style=\"font-size:40px; font-weight:800; color:#e6c600; opacity:0.4; line-height:1; margin-bottom:12px;\">04</div>\n  <h3 style=\"font-size:18px; font-weight:700; color:#ffffff; margin:0 0 12px 0; line-height:1.3;\">VIP Entry to the Hottest Club</h3>\n  <p style=\"font-size:14px; color:rgba(255,255,255,0.60); margin:0; line-height:1.7;\">End the night dancing at one of Barcelona's best clubs. No queue. Skip straight in.</p>\n</div>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "split09sec",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#100f0f",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "0",
+          "bottom": "80",
+          "left": "0",
+          "isLinked": false
+        },
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "split09colL",
+          "elType": "column",
+          "settings": {
+            "_column_size": 50,
+            "content_position": "middle"
+          },
+          "elements": [
+            {
+              "id": "split09img",
+              "elType": "widget",
+              "widgetType": "image",
+              "elements": [],
+              "settings": {
+                "image": {
+                  "url": "https://barcelonapubcrawlbyking.com/wp-content/uploads/2024/02/Barcelona-Pub-Crawl-42.jpg",
+                  "alt": "Barcelona nightlife party tour",
+                  "id": "",
+                  "source": "external"
+                },
+                "image_size": "full",
+                "align": "center",
+                "width": {
+                  "unit": "%",
+                  "size": 100,
+                  "sizes": []
+                },
+                "border_radius": {
+                  "unit": "px",
+                  "top": "8",
+                  "right": "8",
+                  "bottom": "8",
+                  "left": "8",
+                  "isLinked": true
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "split09colR",
+          "elType": "column",
+          "settings": {
+            "_column_size": 50,
+            "content_position": "middle"
+          },
+          "elements": [
+            {
+              "id": "split09eye",
+              "elType": "widget",
+              "widgetType": "heading",
+              "elements": [],
+              "settings": {
+                "title": "Your Guide to Barcelona Nightlife",
+                "header_size": "p",
+                "align": "center",
+                "title_color": "#e6c600",
+                "text_transform": "uppercase",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 12,
+                  "sizes": []
+                },
+                "typography_font_weight": "700",
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": 2,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "split09sp1",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "elements": [],
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 12,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "split09h2",
+              "elType": "widget",
+              "widgetType": "heading",
+              "elements": [],
+              "settings": {
+                "title": "Barcelona's nightlife,<br>on your terms.",
+                "header_size": "h2",
+                "align": "left",
+                "title_color": "#ffffff",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 40,
+                  "sizes": []
+                },
+                "typography_font_weight": "800",
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": -1,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.1,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "split09sp2",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "elements": [],
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 20,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "split09body",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "elements": [],
+              "settings": {
+                "editor": "From Las Ramblas to the beach clubs — we know every door, every shortcut, and every spot worth visiting. Our guides have been doing this for years and it shows.",
+                "align": "left",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 16,
+                  "sizes": []
+                },
+                "typography_font_weight": "400",
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.7,
+                  "sizes": []
+                },
+                "text_color": "rgba(255,255,255,0.60)"
+              }
+            },
+            {
+              "id": "split09sp3",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "elements": [],
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 24,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "split09bul",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<ul style=\"list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:14px;\">\n  <li style=\"display:flex; align-items:flex-start; gap:12px; font-family:Poppins,sans-serif; font-size:15px; color:rgba(255,255,255,0.60); line-height:1.6;\"><span style=\"color:#e6c600; flex-shrink:0;\">📍</span><span>Meetup at Las Ramblas 130 — easy to find, impossible to miss</span></li>\n  <li style=\"display:flex; align-items:flex-start; gap:12px; font-family:Poppins,sans-serif; font-size:15px; color:rgba(255,255,255,0.60); line-height:1.6;\"><span style=\"color:#e6c600; flex-shrink:0;\">🏖️</span><span>Route through the city's best neighborhoods</span></li>\n  <li style=\"display:flex; align-items:flex-start; gap:12px; font-family:Poppins,sans-serif; font-size:15px; color:rgba(255,255,255,0.60); line-height:1.6;\"><span style=\"color:#e6c600; flex-shrink:0;\">🎶</span><span>Electronic, hip-hop, reggaeton — we know where the music fits your vibe</span></li>\n  <li style=\"display:flex; align-items:flex-start; gap:12px; font-family:Poppins,sans-serif; font-size:15px; color:rgba(255,255,255,0.60); line-height:1.6;\"><span style=\"color:#e6c600; flex-shrink:0;\">🤙</span><span>WhatsApp us any time — before, during, or after the tour</span></li>\n</ul>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rev10hdr",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#1a1a1a",
+        "padding": {
+          "unit": "px",
+          "top": "64",
+          "right": "0",
+          "bottom": "32",
+          "left": "0",
+          "isLinked": false
+        },
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "rev10hcol",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "content_position": "middle"
+          },
+          "elements": [
+            {
+              "id": "rev10eye",
+              "elType": "widget",
+              "widgetType": "heading",
+              "elements": [],
+              "settings": {
+                "title": "Real Reviews",
+                "header_size": "p",
+                "align": "center",
+                "title_color": "#e6c600",
+                "text_transform": "uppercase",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 12,
+                  "sizes": []
+                },
+                "typography_font_weight": "700",
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": 2,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "rev10sp1",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "elements": [],
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 12,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "rev10h2",
+              "elType": "widget",
+              "widgetType": "heading",
+              "elements": [],
+              "settings": {
+                "title": "What people say after the tour",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#ffffff",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 40,
+                  "sizes": []
+                },
+                "typography_font_weight": "800",
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": -1,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.1,
+                  "sizes": []
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rev10r1",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#1a1a1a",
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "24",
+          "bottom": "0",
+          "left": "24",
+          "isLinked": false
+        },
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "2268e679",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "602b999e",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"background:#1a1a1a; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:28px; font-family:Poppins,sans-serif; height:100%;\">\n  <div style=\"color:#e6c600; font-size:14px; letter-spacing:0.1em; margin-bottom:16px;\">★★★★★</div>\n  <p style=\"font-size:14px; color:#ffffff; line-height:1.75; margin:0 0 20px 0; font-style:italic;\">\"Best 15 euros I spent in Barcelona. Joined solo and ended up with a whole new friend group. The guide was hilarious and genuinely knew every door person. Absolutely do this.\"</p>\n  <div>\n    <div style=\"font-size:14px; font-weight:700; color:#ffffff;\">Sarah M.</div>\n    <div style=\"font-size:12px; color:rgba(255,255,255,0.60); margin-top:2px;\">Solo traveler · London, UK</div>\n  </div>\n</div>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "4108fa12",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "289624d2",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"background:#1a1a1a; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:28px; font-family:Poppins,sans-serif; height:100%;\">\n  <div style=\"color:#e6c600; font-size:14px; letter-spacing:0.1em; margin-bottom:16px;\">★★★★★</div>\n  <p style=\"font-size:14px; color:#ffffff; line-height:1.75; margin:0 0 20px 0; font-style:italic;\">\"We were a big group and the guide kept everyone together without it feeling like a school trip. Open bar for 2 hours, skipped every queue — the value is insane for what you get.\"</p>\n  <div>\n    <div style=\"font-size:14px; font-weight:700; color:#ffffff;\">Jake & Crew</div>\n    <div style=\"font-size:12px; color:rgba(255,255,255,0.60); margin-top:2px;\">Group of 8 · Sydney, Australia</div>\n  </div>\n</div>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "31aacc6f",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "7d8721c2",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"background:#1a1a1a; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:28px; font-family:Poppins,sans-serif; height:100%;\">\n  <div style=\"color:#e6c600; font-size:14px; letter-spacing:0.1em; margin-bottom:16px;\">★★★★★</div>\n  <p style=\"font-size:14px; color:#ffffff; line-height:1.75; margin:0 0 20px 0; font-style:italic;\">\"Did this in my first week in Barcelona and it was the best decision. Met people I'm still friends with 6 months later. 5 stars, no question.\"</p>\n  <div>\n    <div style=\"font-size:14px; font-weight:700; color:#ffffff;\">Emma T.</div>\n    <div style=\"font-size:12px; color:rgba(255,255,255,0.60); margin-top:2px;\">Erasmus student · Amsterdam, NL</div>\n  </div>\n</div>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rev10r2",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#1a1a1a",
+        "padding": {
+          "unit": "px",
+          "top": "24",
+          "right": "24",
+          "bottom": "80",
+          "left": "24",
+          "isLinked": false
+        },
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "c9223aec",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "76acb2a2",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"background:#1a1a1a; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:28px; font-family:Poppins,sans-serif; height:100%;\">\n  <div style=\"color:#e6c600; font-size:14px; letter-spacing:0.1em; margin-bottom:16px;\">★★★★★</div>\n  <p style=\"font-size:14px; color:#ffffff; line-height:1.75; margin:0 0 20px 0; font-style:italic;\">\"I was nervous going alone but from the moment I arrived everyone was welcoming. The guide made the whole night feel effortless. Already planning to come back.\"</p>\n  <div>\n    <div style=\"font-size:14px; font-weight:700; color:#ffffff;\">Carlos R.</div>\n    <div style=\"font-size:12px; color:rgba(255,255,255,0.60); margin-top:2px;\">First time in BCN · São Paulo, Brazil</div>\n  </div>\n</div>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "9c15e5a3",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "c8ccf35b",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"background:#1a1a1a; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:28px; font-family:Poppins,sans-serif; height:100%;\">\n  <div style=\"color:#e6c600; font-size:14px; letter-spacing:0.1em; margin-bottom:16px;\">★★★★★</div>\n  <p style=\"font-size:14px; color:#ffffff; line-height:1.75; margin:0 0 20px 0; font-style:italic;\">\"We thought a party tour might feel too rowdy but it was perfectly organized and safe. Great mix of people, incredible energy. The club at the end was on fire.\"</p>\n  <div>\n    <div style=\"font-size:14px; font-weight:700; color:#ffffff;\">Thomas & Lena</div>\n    <div style=\"font-size:12px; color:rgba(255,255,255,0.60); margin-top:2px;\">Couple traveling · Munich, Germany</div>\n  </div>\n</div>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "3ac3a1b0",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "e84356c5",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"background:#1a1a1a; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:28px; font-family:Poppins,sans-serif; height:100%;\">\n  <div style=\"color:#e6c600; font-size:14px; letter-spacing:0.1em; margin-bottom:16px;\">★★★★★</div>\n  <p style=\"font-size:14px; color:#ffffff; line-height:1.75; margin:0 0 20px 0; font-style:italic;\">\"The buy-once-come-back-free deal is real — I came back the following week and it was even better. Staff remembers you and makes you feel like a regular.\"</p>\n  <div>\n    <div style=\"font-size:14px; font-weight:700; color:#ffffff;\">Priya K.</div>\n    <div style=\"font-size:12px; color:rgba(255,255,255,0.60); margin-top:2px;\">Weekend trip · Paris, France</div>\n  </div>\n</div>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pa11sec",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "rgba(230,198,0,0.05)",
+        "padding": {
+          "unit": "px",
+          "top": "20",
+          "right": "0",
+          "bottom": "20",
+          "left": "0",
+          "isLinked": false
+        },
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        },
+        "border_border": "solid",
+        "border_width": {
+          "unit": "px",
+          "top": "1",
+          "right": "0",
+          "bottom": "1",
+          "left": "0",
+          "isLinked": false
+        },
+        "border_color": "rgba(230,198,0,0.15)"
+      },
+      "elements": [
+        {
+          "id": "pa11col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "content_position": "middle"
+          },
+          "elements": [
+            {
+              "id": "pa11w",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"text-align:center; font-family:Poppins,sans-serif; font-size:15px; color:rgba(255,255,255,0.60); line-height:1.6;\">\n  💡 <strong style=\"color:#ffffff;\">The math:</strong> One cocktail at a Barcelona club = ~€12. Tonight's party tour = €14.99 — and that includes 2h open bar, 4 bars, exclusive surprises, VIP club entry, and a guide all night.\n</div>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pr11hdr",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#100f0f",
+        "padding": {
+          "unit": "px",
+          "top": "64",
+          "right": "0",
+          "bottom": "32",
+          "left": "0",
+          "isLinked": false
+        },
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "pr11hcol",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "content_position": "middle"
+          },
+          "elements": [
+            {
+              "id": "pr11eye",
+              "elType": "widget",
+              "widgetType": "heading",
+              "elements": [],
+              "settings": {
+                "title": "Our Events",
+                "header_size": "p",
+                "align": "center",
+                "title_color": "#e6c600",
+                "text_transform": "uppercase",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 12,
+                  "sizes": []
+                },
+                "typography_font_weight": "700",
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": 2,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "pr11sp1",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "elements": [],
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 12,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "pr11h2",
+              "elType": "widget",
+              "widgetType": "heading",
+              "elements": [],
+              "settings": {
+                "title": "Pick Your Night",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#ffffff",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 40,
+                  "sizes": []
+                },
+                "typography_font_weight": "800",
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": -1,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.1,
+                  "sizes": []
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pr11crd",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#100f0f",
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "24",
+          "bottom": "80",
+          "left": "24",
+          "isLinked": false
+        },
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "6a1a5877",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "55a8ad75",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"position:relative; background:#1a1a1a; border:2px solid #e6c600; border-radius:8px; padding:40px 32px; font-family:Poppins,sans-serif; height:100%;\">\n  <div style=\"position:absolute; top:-14px; left:50%; transform:translateX(-50%); background:#e6c600; color:#100f0f; font-family:Poppins,sans-serif; font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:4px 20px; border-radius:50px; white-space:nowrap;\">Most Popular</div>\n  <div style=\"text-align:center; margin-bottom:24px;\">\n    <div style=\"font-size:13px; font-weight:700; color:#e6c600; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:8px;\">Weekly Party Tour</div>\n    <div style=\"font-size:52px; font-weight:800; color:#ffffff; line-height:1;\">€14.99</div>\n    <p style=\"font-size:14px; color:rgba(255,255,255,0.60); margin:16px 0 0 0; line-height:1.6;\">Every Friday night. 4 bars + 1 VIP club. Open bar, exclusive surprises, skip-the-line. Buy once, come back free.</p>\n  </div>\n  <ul style=\"list-style:none; padding:0; margin:0 0 32px 0;\"><li style=\"display:flex; align-items:center; gap:8px; font-family:Poppins,sans-serif; font-size:14px; color:rgba(255,255,255,0.60); padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.08);\"><span style=\"color:#e6c600; font-weight:700; flex-shrink:0;\">✓</span>2h open bar included</li><li style=\"display:flex; align-items:center; gap:8px; font-family:Poppins,sans-serif; font-size:14px; color:rgba(255,255,255,0.60); padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.08);\"><span style=\"color:#e6c600; font-weight:700; flex-shrink:0;\">✓</span>Exclusive surprises at every stop</li><li style=\"display:flex; align-items:center; gap:8px; font-family:Poppins,sans-serif; font-size:14px; color:rgba(255,255,255,0.60); padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.08);\"><span style=\"color:#e6c600; font-weight:700; flex-shrink:0;\">✓</span>VIP entry — no queue</li><li style=\"display:flex; align-items:center; gap:8px; font-family:Poppins,sans-serif; font-size:14px; color:rgba(255,255,255,0.60); padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.08);\"><span style=\"color:#e6c600; font-weight:700; flex-shrink:0;\">✓</span>Local expert guide all night</li><li style=\"display:flex; align-items:center; gap:8px; font-family:Poppins,sans-serif; font-size:14px; color:rgba(255,255,255,0.60); padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.08);\"><span style=\"color:#e6c600; font-weight:700; flex-shrink:0;\">✓</span>Meet travelers from 50+ countries</li><li style=\"display:flex; align-items:center; gap:8px; font-family:Poppins,sans-serif; font-size:14px; color:rgba(255,255,255,0.60); padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.08);\"><span style=\"color:#e6c600; font-weight:700; flex-shrink:0;\">✓</span>Buy once · come again for free</li></ul>\n  <a href=\"#bookNowButton\" style=\"display:block; text-align:center; background:#e6c600; color:#100f0f; border:none; font-family:Poppins,sans-serif; font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:14px 24px; border-radius:4px; text-decoration:none;\">Reserve My Spot</a>\n</div>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "8dc59292",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "be595a82",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"position:relative; background:#1a1a1a; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:40px 32px; font-family:Poppins,sans-serif; height:100%;\">\n  \n  <div style=\"text-align:center; margin-bottom:24px;\">\n    <div style=\"font-size:13px; font-weight:700; color:#e6c600; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:8px;\">Boat Party Barcelona</div>\n    <div style=\"font-size:52px; font-weight:800; color:#ffffff; line-height:1;\">€20</div>\n    <p style=\"font-size:14px; color:rgba(255,255,255,0.60); margin:16px 0 0 0; line-height:1.6;\">Party on the water with 360° views of Barcelona's coastline. DJ, drinks, and the Mediterranean. Dates vary.</p>\n  </div>\n  <ul style=\"list-style:none; padding:0; margin:0 0 32px 0;\"><li style=\"display:flex; align-items:center; gap:8px; font-family:Poppins,sans-serif; font-size:14px; color:rgba(255,255,255,0.60); padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.08);\"><span style=\"color:#e6c600; font-weight:700; flex-shrink:0;\">✓</span>Sunset & night departures</li><li style=\"display:flex; align-items:center; gap:8px; font-family:Poppins,sans-serif; font-size:14px; color:rgba(255,255,255,0.60); padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.08);\"><span style=\"color:#e6c600; font-weight:700; flex-shrink:0;\">✓</span>DJ + dance floor on deck</li><li style=\"display:flex; align-items:center; gap:8px; font-family:Poppins,sans-serif; font-size:14px; color:rgba(255,255,255,0.60); padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.08);\"><span style=\"color:#e6c600; font-weight:700; flex-shrink:0;\">✓</span>Drinks available on board</li><li style=\"display:flex; align-items:center; gap:8px; font-family:Poppins,sans-serif; font-size:14px; color:rgba(255,255,255,0.60); padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.08);\"><span style=\"color:#e6c600; font-weight:700; flex-shrink:0;\">✓</span>Porto Olímpic departure</li><li style=\"display:flex; align-items:center; gap:8px; font-family:Poppins,sans-serif; font-size:14px; color:rgba(255,255,255,0.60); padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.08);\"><span style=\"color:#e6c600; font-weight:700; flex-shrink:0;\">✓</span>Limited capacity — book early</li></ul>\n  <a href=\"https://barcelonapubcrawlbyking.com/boat-party-barcelona/\" style=\"display:block; text-align:center; background:transparent; color:#ffffff; border:2px solid #e6c600; font-family:Poppins,sans-serif; font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:14px 24px; border-radius:4px; text-decoration:none;\">View Dates</a>\n</div>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "c2e420e0",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "2d2e688c",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"position:relative; background:#1a1a1a; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:40px 32px; font-family:Poppins,sans-serif; height:100%;\">\n  \n  <div style=\"text-align:center; margin-bottom:24px;\">\n    <div style=\"font-size:13px; font-weight:700; color:#e6c600; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:8px;\">Private Party Tour</div>\n    <div style=\"font-size:52px; font-weight:800; color:#ffffff; line-height:1;\">Custom</div>\n    <p style=\"font-size:14px; color:rgba(255,255,255,0.60); margin:16px 0 0 0; line-height:1.6;\">Stag do, birthday, company night out — we handle everything. Full custom route, private guide, exclusive venues.</p>\n  </div>\n  <ul style=\"list-style:none; padding:0; margin:0 0 32px 0;\"><li style=\"display:flex; align-items:center; gap:8px; font-family:Poppins,sans-serif; font-size:14px; color:rgba(255,255,255,0.60); padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.08);\"><span style=\"color:#e6c600; font-weight:700; flex-shrink:0;\">✓</span>Fully custom itinerary</li><li style=\"display:flex; align-items:center; gap:8px; font-family:Poppins,sans-serif; font-size:14px; color:rgba(255,255,255,0.60); padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.08);\"><span style=\"color:#e6c600; font-weight:700; flex-shrink:0;\">✓</span>Private guide for your group</li><li style=\"display:flex; align-items:center; gap:8px; font-family:Poppins,sans-serif; font-size:14px; color:rgba(255,255,255,0.60); padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.08);\"><span style=\"color:#e6c600; font-weight:700; flex-shrink:0;\">✓</span>Any day of the week</li><li style=\"display:flex; align-items:center; gap:8px; font-family:Poppins,sans-serif; font-size:14px; color:rgba(255,255,255,0.60); padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.08);\"><span style=\"color:#e6c600; font-weight:700; flex-shrink:0;\">✓</span>Bespoke bar selection</li><li style=\"display:flex; align-items:center; gap:8px; font-family:Poppins,sans-serif; font-size:14px; color:rgba(255,255,255,0.60); padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.08);\"><span style=\"color:#e6c600; font-weight:700; flex-shrink:0;\">✓</span>Min. 10 people</li></ul>\n  <a href=\"http://wa.me/34665605282\" style=\"display:block; text-align:center; background:transparent; color:#ffffff; border:2px solid #e6c600; font-family:Poppins,sans-serif; font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:14px 24px; border-radius:4px; text-decoration:none;\">Get a Quote</a>\n</div>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "faq12hdr",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#1a1a1a",
+        "padding": {
+          "unit": "px",
+          "top": "64",
+          "right": "0",
+          "bottom": "32",
+          "left": "0",
+          "isLinked": false
+        },
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "faq12hcol",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "content_position": "middle"
+          },
+          "elements": [
+            {
+              "id": "faq12eye",
+              "elType": "widget",
+              "widgetType": "heading",
+              "elements": [],
+              "settings": {
+                "title": "FAQ",
+                "header_size": "p",
+                "align": "center",
+                "title_color": "#e6c600",
+                "text_transform": "uppercase",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 12,
+                  "sizes": []
+                },
+                "typography_font_weight": "700",
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": 2,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "faq12sp1",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "elements": [],
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 12,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "faq12h2",
+              "elType": "widget",
+              "widgetType": "heading",
+              "elements": [],
+              "settings": {
+                "title": "Questions before you book",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#ffffff",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 40,
+                  "sizes": []
+                },
+                "typography_font_weight": "800",
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": -1,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.1,
+                  "sizes": []
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "faq12body",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#1a1a1a",
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "24",
+          "bottom": "0",
+          "left": "24",
+          "isLinked": false
+        },
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "faq12bcol",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "content_position": "middle"
+          },
+          "elements": [
+            {
+              "id": "0f618d1a",
+              "elType": "widget",
+              "widgetType": "accordion",
+              "elements": [],
+              "settings": {
+                "tabs": [
+                  {
+                    "tab_title": "Is it worth it for the price?",
+                    "tab_content": "Absolutely. €14.99 gets you 2 hours of open bar, exclusive surprises, entry to 4 bars, and VIP club access with no queues. A single drink at a Barcelona club can cost €12. The math is easy.",
+                    "_id": "1c7dbe69"
+                  },
+                  {
+                    "tab_title": "Can I join if I'm traveling solo?",
+                    "tab_content": "Yes — most people join solo or in small groups. The whole point is to meet people. Within the first 15 minutes you'll already be talking to someone new. It's the best icebreaker in the city.",
+                    "_id": "8c34af89"
+                  },
+                  {
+                    "tab_title": "Is it safe?",
+                    "tab_content": "Completely. Our guides are experienced, know the venues personally, and stay with the group all night. We've run thousands of nights without incident. The guide's job is to make sure you have fun and get home safely.",
+                    "_id": "bcc00848"
+                  },
+                  {
+                    "tab_title": "What's the 'buy once, come again for free' deal?",
+                    "tab_content": "If you've already done our party tour, your second time is free. Just show your ticket or let us know at the meeting point. No catch, no expiry.",
+                    "_id": "bf6dc58a"
+                  },
+                  {
+                    "tab_title": "What happens if it rains?",
+                    "tab_content": "The tour runs rain or shine — Barcelona's bars are indoors and the club at the end is always covered. A bit of rain never stopped a good night out.",
+                    "_id": "299eceea"
+                  },
+                  {
+                    "tab_title": "Can I book a private party tour for a group?",
+                    "tab_content": "Yes. We do stag parties, birthdays, Erasmus groups, and company events. Contact us via WhatsApp for a custom quote — we handle everything.",
+                    "_id": "afcf44bd"
+                  },
+                  {
+                    "tab_title": "Where exactly do we meet?",
+                    "tab_content": "Las Ramblas 130, Barcelona. Show up at 21:00. Look for the KING sign or the group already forming. If you're lost, WhatsApp us and we'll find you.",
+                    "_id": "227694c4"
+                  },
+                  {
+                    "tab_title": "What even is a party tour?",
+                    "tab_content": "A party tour is a social night out where a group of strangers moves together through a series of bars and ends up at a club — guided by someone who knows exactly where to go. The magic is that by bar 2 or 3, nobody's a stranger anymore.",
+                    "_id": "6c3a3ca3"
+                  },
+                  {
+                    "tab_title": "Do I have to drink alcohol?",
+                    "tab_content": "Not at all. Many people join completely sober and have an incredible night. The tour is about the people and the experience — drinks are just the backdrop. The open bar is there if you want it, but nobody's watching what's in your glass.",
+                    "_id": "7422ee63"
+                  },
+                  {
+                    "tab_title": "What should I wear?",
+                    "tab_content": "Smart casual — clean jeans, trainers, a nice top. Avoid sportswear, sandals, or sleeveless tops as some venues won't let you in. When in doubt: go one level smarter than you think you need to.",
+                    "_id": "1396aa17"
+                  },
+                  {
+                    "tab_title": "What's the minimum age?",
+                    "tab_content": "18+ strictly. Bring a valid ID (passport or national ID card) — venues will check. No ID, no entry. No exceptions.",
+                    "_id": "05d40856"
+                  }
+                ],
+                "title_color": "#ffffff",
+                "active_color": "#e6c600",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Poppins",
+                "title_typography_font_size": {
+                  "unit": "px",
+                  "size": 16,
+                  "sizes": []
+                },
+                "title_typography_font_weight": "600",
+                "content_color": "rgba(255,255,255,0.60)",
+                "content_typography_typography": "custom",
+                "content_typography_font_family": "Poppins",
+                "content_typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "content_typography_line_height": {
+                  "unit": "em",
+                  "size": 1.7,
+                  "sizes": []
+                },
+                "border_color": "rgba(255,255,255,0.08)",
+                "border_width": {
+                  "unit": "px",
+                  "size": 1,
+                  "sizes": []
+                },
+                "icon_align": "right"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "faq12cta",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#1a1a1a",
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "24",
+          "bottom": "64",
+          "left": "24",
+          "isLinked": false
+        },
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "faq12ctacol",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "content_position": "middle"
+          },
+          "elements": [
+            {
+              "id": "faq12ctaw",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"display:flex; align-items:center; justify-content:center; gap:24px; flex-wrap:wrap; font-family:Poppins,sans-serif; padding:24px 0;\">\n  <span style=\"font-size:16px; color:rgba(255,255,255,0.60);\">Still got questions?</span>\n  <a href=\"http://wa.me/34665605282\" target=\"_blank\" style=\"display:inline-block; background:#e6c600; color:#100f0f; font-family:Poppins,sans-serif; font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:14px 32px; border-radius:4px; text-decoration:none;\">💬 Chat on WhatsApp →</a>\n</div>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prac13hdr",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#100f0f",
+        "padding": {
+          "unit": "px",
+          "top": "64",
+          "right": "0",
+          "bottom": "32",
+          "left": "0",
+          "isLinked": false
+        },
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "prac13hcol",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "content_position": "middle"
+          },
+          "elements": [
+            {
+              "id": "prac13eye",
+              "elType": "widget",
+              "widgetType": "heading",
+              "elements": [],
+              "settings": {
+                "title": "Before You Go",
+                "header_size": "p",
+                "align": "center",
+                "title_color": "#e6c600",
+                "text_transform": "uppercase",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 12,
+                  "sizes": []
+                },
+                "typography_font_weight": "700",
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": 2,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "prac13sp1",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "elements": [],
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 12,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "prac13h2",
+              "elType": "widget",
+              "widgetType": "heading",
+              "elements": [],
+              "settings": {
+                "title": "Everything you need to know",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#ffffff",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 40,
+                  "sizes": []
+                },
+                "typography_font_weight": "800",
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": -1,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.1,
+                  "sizes": []
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prac13r1",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#100f0f",
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "24",
+          "bottom": "0",
+          "left": "24",
+          "isLinked": false
+        },
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "5644307c",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "6e9f7911",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"background:#100f0f; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:28px 24px; font-family:Poppins,sans-serif; height:100%;\">\n  <div style=\"font-size:28px; margin-bottom:12px; line-height:1;\">📍</div>\n  <div style=\"font-size:11px; font-weight:700; color:#e6c600; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:6px;\">Meeting Point</div>\n  <div style=\"font-size:16px; font-weight:700; color:#ffffff; margin-bottom:4px;\">Las Ramblas 130, Barcelona</div>\n  <a href=\"https://maps.google.com/?q=Las+Ramblas+130+Barcelona\" target=\"_blank\" style=\"font-size:13px; font-weight:700; color:#e6c600; text-decoration:none; margin-top:6px; display:inline-block;\">Open in Maps →</a>\n</div>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "0324f4e0",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "b25d9a25",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"background:#100f0f; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:28px 24px; font-family:Poppins,sans-serif; height:100%;\">\n  <div style=\"font-size:28px; margin-bottom:12px; line-height:1;\">🕘</div>\n  <div style=\"font-size:11px; font-weight:700; color:#e6c600; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:6px;\">Start Time</div>\n  <div style=\"font-size:16px; font-weight:700; color:#ffffff; margin-bottom:4px;\">21:00 sharp</div>\n  <p style=\"font-size:14px; color:rgba(255,255,255,0.60); margin:4px 0 0 0; line-height:1.5;\">Doors close at 21:15 — don't be that person</p>\n</div>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "3e713d18",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "7061e9d5",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"background:#100f0f; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:28px 24px; font-family:Poppins,sans-serif; height:100%;\">\n  <div style=\"font-size:28px; margin-bottom:12px; line-height:1;\">📅</div>\n  <div style=\"font-size:11px; font-weight:700; color:#e6c600; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:6px;\">When</div>\n  <div style=\"font-size:16px; font-weight:700; color:#ffffff; margin-bottom:4px;\">Every Friday</div>\n  <p style=\"font-size:14px; color:rgba(255,255,255,0.60); margin:4px 0 0 0; line-height:1.5;\">Rain or shine, no exceptions</p>\n</div>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prac13r2",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#100f0f",
+        "padding": {
+          "unit": "px",
+          "top": "24",
+          "right": "24",
+          "bottom": "80",
+          "left": "24",
+          "isLinked": false
+        },
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "e426b102",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "8081d189",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"background:#100f0f; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:28px 24px; font-family:Poppins,sans-serif; height:100%;\">\n  <div style=\"font-size:28px; margin-bottom:12px; line-height:1;\">👗</div>\n  <div style=\"font-size:11px; font-weight:700; color:#e6c600; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:6px;\">Dress Code</div>\n  <div style=\"font-size:16px; font-weight:700; color:#ffffff; margin-bottom:4px;\">Smart casual</div>\n  <p style=\"font-size:14px; color:rgba(255,255,255,0.60); margin:4px 0 0 0; line-height:1.5;\">No sportswear, no sandals, no sleeveless tops</p>\n</div>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "d6a6eeb7",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "e450612d",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"background:#100f0f; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:28px 24px; font-family:Poppins,sans-serif; height:100%;\">\n  <div style=\"font-size:28px; margin-bottom:12px; line-height:1;\">🪪</div>\n  <div style=\"font-size:11px; font-weight:700; color:#e6c600; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:6px;\">Age</div>\n  <div style=\"font-size:16px; font-weight:700; color:#ffffff; margin-bottom:4px;\">18+ with valid ID</div>\n  <p style=\"font-size:14px; color:rgba(255,255,255,0.60); margin:4px 0 0 0; line-height:1.5;\">Passport or national ID — venues will check</p>\n</div>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "0fb33245",
+          "elType": "column",
+          "settings": {
+            "_column_size": 33
+          },
+          "elements": [
+            {
+              "id": "b372a4e4",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"background:#100f0f; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:28px 24px; font-family:Poppins,sans-serif; height:100%;\">\n  <div style=\"font-size:28px; margin-bottom:12px; line-height:1;\">🍹</div>\n  <div style=\"font-size:11px; font-weight:700; color:#e6c600; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:6px;\">Alcohol</div>\n  <div style=\"font-size:16px; font-weight:700; color:#ffffff; margin-bottom:4px;\">Totally optional</div>\n  <p style=\"font-size:14px; color:rgba(255,255,255,0.60); margin:4px 0 0 0; line-height:1.5;\">Plenty of people join sober and have the best night</p>\n</div>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ctaf14sec",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#100f0f",
+        "padding": {
+          "unit": "px",
+          "top": "100",
+          "right": "0",
+          "bottom": "100",
+          "left": "0",
+          "isLinked": false
+        },
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "ctaf14col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "content_position": "middle",
+            "text_align": "center"
+          },
+          "elements": [
+            {
+              "id": "ctaf14eye",
+              "elType": "widget",
+              "widgetType": "heading",
+              "elements": [],
+              "settings": {
+                "title": "Limited Spots Every Friday",
+                "header_size": "p",
+                "align": "center",
+                "title_color": "#e6c600",
+                "text_transform": "uppercase",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 12,
+                  "sizes": []
+                },
+                "typography_font_weight": "700",
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": 2,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "ctaf14sp1",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "elements": [],
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 12,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "ctaf14h2",
+              "elType": "widget",
+              "widgetType": "heading",
+              "elements": [],
+              "settings": {
+                "title": "Stop worrying about<br>guest lists and queues.",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#ffffff",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 52,
+                  "sizes": []
+                },
+                "typography_font_weight": "800",
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": -1,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.1,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "ctaf14sp2",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "elements": [],
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 20,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "ctaf14sub",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "elements": [],
+              "settings": {
+                "editor": "Right now, travelers from around the world are joining tonight's group.<br>The best nights in Barcelona start with one decision.",
+                "align": "center",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 17,
+                  "sizes": []
+                },
+                "typography_font_weight": "400",
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.7,
+                  "sizes": []
+                },
+                "text_color": "rgba(255,255,255,0.60)"
+              }
+            },
+            {
+              "id": "ctaf14sp3",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "elements": [],
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 32,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "ctaf14btns",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div style=\"display:flex; gap:16px; justify-content:center; flex-wrap:wrap;\">\n  <a href=\"#bookNowButton\" style=\"display:inline-block; background:#e6c600; color:#100f0f; font-family:Poppins,sans-serif; font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:16px 40px; border-radius:4px; text-decoration:none;\">I'm In — Book Now →</a>\n  <a href=\"http://wa.me/34665605282\" target=\"_blank\" style=\"display:inline-block; background:transparent; color:#ffffff; font-family:Poppins,sans-serif; font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:16px 40px; border-radius:4px; text-decoration:none; border:1px solid rgba(255,255,255,0.25);\">💬 Chat on WhatsApp</a>\n</div>"
+              }
+            },
+            {
+              "id": "ctaf14sp4",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "elements": [],
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 20,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "ctaf14rat",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "elements": [],
+              "settings": {
+                "editor": "⭐⭐⭐⭐⭐ <strong style=\"color:#e6c600;\">4.9/5</strong> · 696+ verified reviews",
+                "align": "center",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 13,
+                  "sizes": []
+                },
+                "typography_font_weight": "400",
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.7,
+                  "sizes": []
+                },
+                "text_color": "rgba(255,255,255,0.60)"
+              }
+            },
+            {
+              "id": "ctaf14gua",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "elements": [],
+              "settings": {
+                "editor": "No hidden fees · No guest list drama · Buy once, come back free",
+                "align": "center",
+                "typography_typography": "custom",
+                "typography_font_family": "Poppins",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 12,
+                  "sizes": []
+                },
+                "typography_font_weight": "400",
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.7,
+                  "sizes": []
+                },
+                "text_color": "rgba(255,255,255,0.60)"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "book15sec",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#1a1a1a",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "0",
+          "bottom": "80",
+          "left": "0",
+          "isLinked": false
+        },
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "book15col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "content_position": "middle"
+          },
+          "elements": [
+            {
+              "id": "book15w",
+              "elType": "widget",
+              "widgetType": "html",
+              "elements": [],
+              "settings": {
+                "html": "<div id=\"bookNowButton\" style=\"background:#242424; border:1px solid rgba(230,198,0,0.20); border-radius:8px; padding:48px 32px; text-align:center; font-family:Poppins,sans-serif; max-width:640px; margin:0 auto;\">\n  <h2 style=\"font-size:36px; font-weight:800; color:#ffffff; margin:0 0 16px 0; letter-spacing:-0.03em;\">Book Your Spot</h2>\n  <p style=\"font-size:16px; color:rgba(255,255,255,0.60); margin:0 0 32px 0; line-height:1.6;\">Pick your date and confirm your place. See you at Las Ramblas 130 at 21:00.</p>\n  <p style=\"font-size:13px; color:rgba(255,255,255,0.60); margin:0 0 20px 0;\">Booking calendar loads here</p>\n  <a href=\"http://wa.me/34665605282\" target=\"_blank\" style=\"display:inline-block; background:#e6c600; color:#100f0f; font-family:Poppins,sans-serif; font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:16px 40px; border-radius:4px; text-decoration:none; margin-bottom:16px;\">Book via WhatsApp</a>\n  <p style=\"font-size:13px; color:rgba(255,255,255,0.35); margin:0;\">Can't book via calendar? Send us a WhatsApp and we'll sort you in minutes.</p>\n</div>"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "page_settings": {
+    "hide_title": "yes",
+    "page_layout": "elementor_canvas",
+    "background_background": "classic",
+    "background_color": "#100f0f",
+    "font_family": "Poppins"
+  },
+  "version": "0.4",
+  "title": "Home — Barcelona Pub Crawl by KING",
+  "type": "page"
+}

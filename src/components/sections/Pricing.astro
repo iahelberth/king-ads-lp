@@ -1,0 +1,139 @@
+---
+/**
+ * Pricing.astro — Tabela de preços (1, 2 ou 3 colunas)
+ *
+ * Props:
+ *   tag     - Texto da tag topo
+ *   title   - Título da seção
+ *   plans   - Array de planos (ver PricingPlan abaixo)
+ *
+ * PricingPlan:
+ *   label      - Nome do plano
+ *   price      - Preço (número ou string)
+ *   currency   - Símbolo monetário (default: '€')
+ *   priceOld   - Preço antigo riscado (opcional)
+ *   description - Descrição curta do plano
+ *   features   - Array de features (string[])
+ *   cta        - Texto do botão CTA
+ *   ctaHref    - Link do CTA
+ *   featured   - true para destacar em vermelho
+ */
+interface PricingPlan {
+  label: string;
+  price: string | number;
+  currency?: string;
+  priceOld?: string | number;
+  description?: string;
+  features: string[];
+  cta?: string;
+  ctaHref?: string;
+  featured?: boolean;
+}
+
+interface Props {
+  tag?: string;
+  title?: string;
+  plans: PricingPlan[];
+}
+
+const { tag, title, plans } = Astro.props;
+
+const gridClass: Record<number, string> = {
+  1: 'max-w-sm mx-auto',
+  2: 'grid grid-cols-1 md:grid-cols-2 max-w-3xl mx-auto',
+  3: 'grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto',
+};
+---
+
+<section id="pricing" class="py-28 bg-[var(--color-bg-dark)] relative overflow-hidden">
+  <!-- Glow bottom right -->
+  <div class="absolute -bottom-40 -right-20 w-[500px] h-[500px] bg-[var(--color-primary)]/5 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-6xl mx-auto px-8">
+    {(tag || title) && (
+      <div class="text-center mb-16" data-reveal>
+        {tag && (
+          <span class="inline-block text-[11px] font-bold tracking-[3px] uppercase text-[var(--color-primary)] border border-[var(--color-primary)]/25 px-4 py-1.5 rounded-sm mb-5">
+            {tag}
+          </span>
+        )}
+        {title && (
+          <h2 class="font-display text-[clamp(36px,5vw,64px)] leading-[1.05] tracking-[-1px] text-white" set:html={title} />
+        )}
+      </div>
+    )}
+
+    <div class:list={[gridClass[plans.length] ?? gridClass[2], 'gap-px bg-white/4']}>
+      {plans.map((plan, i) => (
+        <div
+          class:list={[
+            'p-14 relative',
+            plan.featured ? 'bg-[var(--color-primary)]' : 'bg-[var(--color-bg-card)]'
+          ]}
+          data-reveal
+          data-delay={String(i + 1)}
+        >
+          <!-- Label -->
+          <span class:list={[
+            'block text-[11px] font-bold tracking-[3px] uppercase mb-7',
+            plan.featured ? 'text-white/70' : 'text-[#9a9a9a]'
+          ]}>
+            {plan.label}
+          </span>
+
+          <!-- Preço -->
+          <div class="font-display text-[80px] leading-none tracking-[-3px] text-white">
+            {plan.currency ?? '€'}
+            {plan.priceOld && (
+              <span class="line-through opacity-45">{plan.priceOld}</span>
+            )}
+            {plan.price}
+          </div>
+
+          <!-- Descrição -->
+          {plan.description && (
+            <p class:list={[
+              'mt-5 mb-9 text-[15px] leading-[1.7]',
+              plan.featured ? 'text-white/80' : 'text-[#9a9a9a]'
+            ]}>
+              {plan.description}
+            </p>
+          )}
+
+          <!-- Features -->
+          <ul class="list-none flex flex-col gap-3">
+            {plan.features.map(f => (
+              <li class:list={[
+                'flex items-start gap-3 text-sm',
+                plan.featured ? 'text-white/85' : 'text-[#9a9a9a]'
+              ]}>
+                <span class:list={[
+                  'mt-0.5 text-xs flex-shrink-0',
+                  plan.featured ? 'text-white/90' : 'text-[#9a9a9a]'
+                ]}>
+                  {plan.featured ? '✓' : '✕'}
+                </span>
+                {f}
+              </li>
+            ))}
+          </ul>
+
+          <!-- CTA -->
+          {plan.cta && (
+            <a
+              href={plan.ctaHref ?? '#'}
+              class:list={[
+                'flex items-center justify-center mt-9 py-4 px-6 rounded-sm font-bold text-sm tracking-widest uppercase no-underline transition-all duration-200 hover:-translate-y-0.5',
+                plan.featured
+                  ? 'bg-white text-[var(--color-primary)] hover:bg-white/90'
+                  : 'bg-[var(--color-primary)] text-white hover:brightness-90'
+              ]}
+            >
+              {plan.cta}
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

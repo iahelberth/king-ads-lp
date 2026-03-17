@@ -1,0 +1,151 @@
+---
+/**
+ * LeadForm.astro — Formulário de captura de lead
+ *
+ * provider: 'formspree' | 'n8n'
+ *
+ * Props:
+ *   provider       - 'formspree' | 'n8n'
+ *   endpoint       - URL do endpoint (Formspree ID ou URL do webhook N8N)
+ *   fields         - Campos a exibir: 'name' | 'email' | 'phone' | 'message'
+ *   ctaText        - Texto do botão de envio
+ *   successMessage - Mensagem de sucesso
+ *   placeholder_*  - Placeholders por campo
+ *   dark           - Tema escuro (default: true)
+ */
+type FieldType = 'name' | 'email' | 'phone' | 'message';
+
+interface Props {
+  provider: 'formspree' | 'n8n';
+  endpoint: string;
+  fields?: FieldType[];
+  ctaText?: string;
+  successMessage?: string;
+  dark?: boolean;
+}
+
+const {
+  provider,
+  endpoint,
+  fields = ['name', 'email'],
+  ctaText = 'Enviar',
+  successMessage = 'Obrigado! Entraremos em contato em breve.',
+  dark = true,
+} = Astro.props;
+
+const labels: Record<FieldType, string> = {
+  name: 'Nome completo',
+  email: 'Email',
+  phone: 'Telefone / WhatsApp',
+  message: 'Mensagem',
+};
+
+const inputTypes: Record<FieldType, string> = {
+  name: 'text',
+  email: 'email',
+  phone: 'tel',
+  message: 'textarea',
+};
+
+const formId = `lead-form-${Math.random().toString(36).slice(2, 7)}`;
+---
+
+<form
+  id={formId}
+  class:list={[
+    'lead-form flex flex-col gap-4',
+    dark ? 'text-white' : 'text-gray-900'
+  ]}
+  novalidate
+>
+  {fields.map(field => (
+    <div class="flex flex-col gap-1.5">
+      <label for={`${formId}-${field}`} class="text-[12px] font-semibold tracking-[1px] uppercase text-[#9a9a9a]">
+        {labels[field]}
+      </label>
+      {inputTypes[field] === 'textarea' ? (
+        <textarea
+          id={`${formId}-${field}`}
+          name={field}
+          rows={4}
+          required
+          class:list={[
+            'w-full px-4 py-3 rounded-sm text-sm outline-none transition-colors resize-none',
+            dark
+              ? 'bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:border-[var(--color-primary)]'
+              : 'bg-black/5 border border-black/10 text-gray-900 focus:border-[var(--color-primary)]'
+          ]}
+        />
+      ) : (
+        <input
+          id={`${formId}-${field}`}
+          name={field}
+          type={inputTypes[field]}
+          required
+          class:list={[
+            'w-full px-4 py-3 rounded-sm text-sm outline-none transition-colors',
+            dark
+              ? 'bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:border-[var(--color-primary)]'
+              : 'bg-black/5 border border-black/10 text-gray-900 focus:border-[var(--color-primary)]'
+          ]}
+        />
+      )}
+    </div>
+  ))}
+
+  <button
+    type="submit"
+    class="w-full bg-[var(--color-primary)] text-white font-bold text-sm tracking-widest uppercase py-4 rounded-sm transition-all duration-200 hover:brightness-90 mt-2 cursor-pointer border-0"
+  >
+    {ctaText}
+  </button>
+
+  <p class="form-success hidden text-center text-sm text-green-400 mt-2">{successMessage}</p>
+  <p class="form-error hidden text-center text-sm text-red-400 mt-2">Erro ao enviar. Tente novamente.</p>
+</form>
+
+<script define:vars={{ formId, provider, endpoint }}>
+  const form = document.getElementById(formId);
+  if (!form) throw new Error('Form not found');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    const successEl = form.querySelector('.form-success');
+    const errorEl = form.querySelector('.form-error');
+    if (btn) (btn as HTMLButtonElement).disabled = true;
+    if (btn) btn.textContent = 'Enviando...';
+
+    const data = Object.fromEntries(new FormData(form as HTMLFormElement));
+
+    try {
+      let res;
+      if (provider === 'formspree') {
+        res = await fetch(`https://formspree.io/f/${endpoint}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data),
+        });
+      } else {
+        // n8n webhook
+        res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+      }
+
+      if (res.ok) {
+        form.reset();
+        successEl?.classList.remove('hidden');
+      } else {
+        throw new Error('Response not ok');
+      }
+    } catch {
+      errorEl?.classList.remove('hidden');
+    } finally {
+      if (btn) (btn as HTMLButtonElement).disabled = false;
+      if (btn) btn.textContent = 'Enviar';
+    }
+  });
+</script>

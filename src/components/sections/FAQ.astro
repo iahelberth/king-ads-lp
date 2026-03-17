@@ -1,0 +1,82 @@
+---
+/**
+ * FAQ.astro — Perguntas frequentes com accordion animado
+ *
+ * Props:
+ *   tag   - Tag topo
+ *   title - Título
+ *   items - Array de { question, answer }
+ */
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  tag?: string;
+  title?: string;
+  items: FAQItem[];
+}
+
+const { tag, title, items } = Astro.props;
+---
+
+<section id="faq" class="py-28 bg-[var(--color-bg)]">
+  <div class="max-w-3xl mx-auto px-8">
+    {(tag || title) && (
+      <div class="text-center mb-16" data-reveal>
+        {tag && (
+          <span class="inline-block text-[11px] font-bold tracking-[3px] uppercase text-[var(--color-primary)] border border-[var(--color-primary)]/25 px-4 py-1.5 rounded-sm mb-5">
+            {tag}
+          </span>
+        )}
+        {title && (
+          <h2 class="font-display text-[clamp(36px,5vw,56px)] leading-[1.05] tracking-[-1px] text-white" set:html={title} />
+        )}
+      </div>
+    )}
+
+    <div class="flex flex-col gap-px bg-white/4">
+      {items.map((item, i) => (
+        <div class="faq-item bg-[var(--color-bg-card)]" data-reveal data-delay={String((i % 4) + 1)}>
+          <button
+            class="faq-trigger w-full flex items-center justify-between gap-6 px-8 py-6 text-left cursor-pointer"
+            aria-expanded="false"
+          >
+            <span class="font-semibold text-white text-[16px] leading-snug">{item.question}</span>
+            <span class="faq-icon flex-shrink-0 w-6 h-6 border border-white/20 rounded-sm flex items-center justify-center text-[var(--color-primary)] transition-transform duration-300">
+              +
+            </span>
+          </button>
+          <div class="faq-answer px-8 overflow-hidden max-h-0 transition-all duration-400 ease-in-out">
+            <p class="text-white/60 text-[15px] leading-[1.7] pb-6">{item.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const trigger = item.querySelector('.faq-trigger') as HTMLButtonElement;
+    const answer = item.querySelector('.faq-answer') as HTMLElement;
+    const icon = item.querySelector('.faq-icon') as HTMLElement;
+
+    trigger.addEventListener('click', () => {
+      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+      // Fechar todos
+      document.querySelectorAll('.faq-trigger').forEach(t => t.setAttribute('aria-expanded', 'false'));
+      document.querySelectorAll('.faq-answer').forEach(a => (a as HTMLElement).style.maxHeight = '0');
+      document.querySelectorAll('.faq-icon').forEach(ic => (ic as HTMLElement).style.transform = 'rotate(0deg)');
+
+      // Abrir se estava fechado
+      if (!isOpen) {
+        trigger.setAttribute('aria-expanded', 'true');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        icon.style.transform = 'rotate(45deg)';
+      }
+    });
+  });
+</script>
