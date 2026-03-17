@@ -496,13 +496,15 @@ const faqs = [
 
       <div class="book__options" data-reveal data-delay="1">
 
-        <!-- Primary booking CTA — booking system script hooks into #bookNowBtn -->
+        <!-- Primary booking CTA — TicketingHub popup widget -->
         <div class="book-cta-wrapper">
-          <button
+          <a
+            href="#"
             id="bookNowBtn"
             class="book-cta-btn"
-            type="button"
             aria-label="Book your pub crawl Barcelona ticket"
+            data-th-popover
+            data-th-config='{ "widgetId": "af270b1e-6318-4538-9b35-09d4898f41a0" }'
           >
             <span class="book-cta-btn__pulse" aria-hidden="true"></span>
             <span class="book-cta-btn__icon" aria-hidden="true">🎟️</span>
@@ -511,7 +513,7 @@ const faqs = [
               <span class="book-cta-btn__sub">Instant confirmation · Secure checkout</span>
             </span>
             <span class="book-cta-btn__arrow" aria-hidden="true">→</span>
-          </button>
+          </a>
           <p class="book-cta-note">🔒 Secure payment · Cancel up to 24h before</p>
         </div>
 
@@ -1209,6 +1211,7 @@ const faqs = [
     cursor: pointer;
     font-family: var(--font-body);
     text-align: left;
+    text-decoration: none;
     box-shadow:
       0 0 0 1px rgba(230,198,0,0.4),
       0 8px 32px rgba(230,198,0,0.35),
